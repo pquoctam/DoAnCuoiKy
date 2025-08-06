@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="PageTitle" xml:space="preserve"><value>VỀ TEXAS CHICKEN</value></data>
+  <data name="IntroHeading" xml:space="preserve"><value>GIỚI THIỆU</value></data>
+  <data name="BrandTitle" xml:space="preserve"><value>TEXAS CHICKEN</value></data>
+  <data name="BrandParagraph1" xml:space="preserve">
+    <value>Được thành lập tại thành phố San Antonio, bang Texas (Mỹ) năm 1952, Texas Chicken là một trong những thương hiệu hàng đầu thế giới về ngành dịch vụ ăn nhanh. Texas Chicken hiện là thương hiệu quốc tế hàng đầu về gà rán, phục vụ trên 3 triệu quý khách mỗi tuần trên toàn hệ thống 1.700 tiệm tại Mỹ và 26 quốc gia.</value>
+  </data>
+  <data name="BrandParagraph2" xml:space="preserve">
+    <value>Thương hiệu Texas Chicken cam kết chỉ sử dụng gà tươi, chất lượng cao, không dùng thực phẩm đông lạnh. Các món ăn luôn được chế biến trong ngày và phục vụ nóng hổi, giòn tan đến tay thực khách.</value>
+  </data>
+  <data name="BrandParagraph3" xml:space="preserve">
+    <value>Texas Chicken có mặt tại Việt Nam từ cuối năm 2012 và đã phát triển nhanh chóng với 30 nhà hàng tại TP.HCM, Bình Dương, Nha Trang, Hà Nội, Hải Phòng và Biên Hòa, mang đến trải nghiệm "Gà rán đậm vị Texas" cho nhiều thực khách.</value>
+  </data>
+  <data name="TimelineIntro" xml:space="preserve"><value>TẤT CẢ BẮT ĐẦU NHƯ THẾ NÀO</value></data>
+
+  <!-- 1950s -->
+  <data name="Timeline1950Title" xml:space="preserve"><value>1950’S</value></data>
+  <data name="Timeline1950_1" xml:space="preserve"><value>Ông ấy tên là George W. Church, Sr. và ông ấy là lý do khiến bạn thèm ăn thịt gà đến vậy...</value></data>
+  <data name="Timeline1950_2" xml:space="preserve"><value>George W. Church, Sr. mở Church’s Fried Chicken-To-Go ở trung tâm San Antonio...</value></data>
+  <data name="Timeline1950_3" xml:space="preserve"><value>Churchie™ trở thành linh vật đáng yêu của thương hiệu.</value></data>
+
+  <!-- 1960s -->
+  <data name="Timeline1960Title" xml:space="preserve"><value>1960’S</value></data>
+  <data name="Timeline1960_1" xml:space="preserve"><value>Church’s ® có hơn 100 nhà hàng ở bảy tiểu bang</value></data>
+  <data name="Timeline1960_2" xml:space="preserve"><value>George W. (Bill) Church, Jr tiếp quản công ty sau khi cha anh qua đời.</value></data>
+  <data name="Timeline1960_3" xml:space="preserve"><value>Church’s ® trở thành công ty đại chúng. Trụ sở Quốc gia mở tại San Antonio.</value></data>
+
+  <!-- 1970s -->
+  <data name="Timeline1970Title" xml:space="preserve"><value>1970’S</value></data>
+  <data name="Timeline1970_1" xml:space="preserve"><value>Nhà hàng của chúng tôi có một diện mạo mới.</value></data>
+  <data name="Timeline1970_2" xml:space="preserve"><value>Franchise đầu tiên của Church’s ® mở bên ngoài Hoa Kỳ tại Vancouver, Canada.</value></data>
+  <data name="Timeline1970_3" xml:space="preserve"><value>Church’s ® niêm yết trên sàn chứng khoán NY. Tạp chí Wall Street gọi là “công ty tăng trưởng được quản lý tốt nhất”.</value></data>
+  <data name="Timeline1970_4" xml:space="preserve"><value>Chiến dịch quảng cáo mới giúp Church’s ® nổi bật giữa các đối thủ.</value></data>
+
+  <!-- 1980s -->
+  <data name="Timeline1980Title" xml:space="preserve"><value>1980’S</value></data>
+  <data name="Timeline1980_1" xml:space="preserve"><value>Chiến dịch "Kick the Bucket" cạnh tranh trực tiếp với chuỗi gà khác.</value></data>
+  <data name="Timeline1980_2" xml:space="preserve"><value>Church’s ® đổi diện mạo. Màu sắc mới: xanh lá, trắng và cam.</value></data>
+  <data name="Timeline1980_3" xml:space="preserve"><value>Bánh mì kẹp Big Chicken mới lập kỷ lục: gần 1.400 chiếc bán ra trong một ngày.</value></data>
+
+  <!-- 1990s -->
+  <data name="Timeline1990Title" xml:space="preserve"><value>1990’S</value></data>
+  <data name="Timeline1990_1" xml:space="preserve"><value>Chúng tôi sống và tin vào di sản đích thực: Con đường Texas.</value></data>
+  <data name="Timeline1990_2" xml:space="preserve"><value>AFC trở thành công ty mẹ, chuyển trụ sở về Atlanta, Georgia.</value></data>
+  <data name="Timeline1990_3" xml:space="preserve"><value>Sau 12 năm, Church’s® được bán lại cho công ty cổ phần tư nhân và không còn liên kết với thương hiệu khác.</value></data>
+
+  <!-- 2000s -->
+  <data name="Timeline2000Title" xml:space="preserve"><value>2000’S</value></data>
+  <data name="Timeline2000_1" xml:space="preserve"><value>Doanh số toàn cầu vượt 1 tỷ USD – một lượng gà khổng lồ!</value></data>
+  <data name="Timeline2000_2" xml:space="preserve"><value>Suốt hơn 60 năm, Church’s® thay đổi nhiều diện mạo, sản phẩm, chiến dịch, nhưng luôn giữ chất lượng gà hàng đầu.</value></data>
+
+  <!-- 2010s -->
+  <data name="Timeline2010Title" xml:space="preserve"><value>2010’S</value></data>
+  <data name="Timeline2010_1" xml:space="preserve"><value>Truyền thống của chúng tôi là Texas – dành cho bạn thưởng thức mỗi ngày.</value></data>
+  <data name="Timeline2010_2" xml:space="preserve"><value>Phục vụ hơn 1.700 địa điểm tại 23 quốc gia.</value></data>
+  <data name="Timeline2010_3" xml:space="preserve"><value>Khai trương nhà hàng Texas Chicken tại Malaysia.</value></data>
+
+  <!-- 2020s -->
+  <data name="Timeline2020Title" xml:space="preserve"><value>2020’S</value></data>
+  <data name="Timeline2020_1" xml:space="preserve"><value>Bữa ăn thủ công huyền thoại với hương vị đậm đà mang đến trải nghiệm đáng nhớ.</value></data>
+  <data name="Timeline2020_2" xml:space="preserve"><value>Di sản, tinh thần và cội nguồn của chúng tôi đều đến từ Texas.</value></data>
+  <data name="Timeline2020_3" xml:space="preserve"><value>Khai trương nhà hàng Texas Chicken tại Việt Nam.</value></data>
+</root>

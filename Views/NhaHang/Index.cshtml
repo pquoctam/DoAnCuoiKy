@@ -1,0 +1,259 @@
+@model List<TexasChicken.Models.NhaHang>
+@{
+    ViewData["Title"] = "NhaHang";
+}
+<!-- Banner -->
+<section class="banner-nhahang">
+    <img src="https://texaschickenvn.com/vnt_upload/weblink/banner_5.jpg" alt="Banner Texas Chicken" />
+</section>
+
+<!-- Locator -->
+<section class="restaurant-locator">
+    <h2>HỆ THỐNG NHÀ HÀNG TEXAS CHICKEN</h2>
+
+    <!-- Bộ lọc -->
+    <div class="filters">
+        <select id="provinceSelect" onchange="updateDistricts()">
+            <option value="">Tỉnh / Thành phố</option>
+            @foreach (var tp in ViewBag.ThanhPhoList)
+            {
+                <option value="@tp.TenTP">@tp.TenTP</option>
+            }
+        </select>
+        <select id="districtSelect">
+            <option value="">Quận / Huyện</option>
+        </select>
+        <button class="btn-search" onclick="filterRestaurants()">
+            <i class="fas fa-search"></i> Tìm kiếm
+        </button>
+    </div>
+
+    <p id="resultCount" style="text-align:center; font-style: italic; color:gray;"></p>
+
+    <div class="restaurant-system">
+        <div id="restaurantList" class="restaurant-list"></div>
+        <div class="map-wrapper">
+            <div id="map" style="height: 500px;"></div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHjnfvYyUzjWBSSkfBDFeLstAYo-7TdrU&callback=initMap" async defer></script>
+
+    <script>
+        const OPEN_CAGE_API_KEY = '936250f3346b4b7cbaf08fc0c3c6a28b';
+
+        let restaurants = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(
+            Model.Select(nh => new {
+                id = nh.MaNH,
+                name = nh.TenNH,
+                address = nh.DiaChi,
+                phone = nh.SoDienThoai,
+                province = nh.QuanHuyen?.ThanhPho?.TenTP,
+                district = nh.QuanHuyen?.TenQH,
+                lat = nh.Latitude,
+                lng = nh.Longitude
+            })
+        ));
+
+        let map;
+        let markers = [];
+        const restaurantListDiv = document.getElementById("restaurantList");
+        const resultCount = document.getElementById("resultCount");
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 10.762622, lng: 106.660172 },
+                zoom: 12
+            });
+            enrichRestaurantsWithLatLng();
+        }
+
+        async function getLatLngFromOpenCage(address) {
+            const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(address)}&key=${OPEN_CAGE_API_KEY}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.results.length > 0) {
+                return {
+                    lat: data.results[0].geometry.lat,
+                    lng: data.results[0].geometry.lng
+                };
+            }
+            return null;
+        }
+
+        async function enrichRestaurantsWithLatLng() {
+            for (let i = 0; i < restaurants.length; i++) {
+                if (!restaurants[i].lat || !restaurants[i].lng) {
+                    const coords = await getLatLngFromOpenCage(restaurants[i].address + ', Việt Nam');
+                    if (coords) {
+                        restaurants[i].lat = coords.lat;
+                        restaurants[i].lng = coords.lng;
+
+                        // Gửi về backend để cập nhật DB
+                        await fetch('/NhaHang/CapNhatToaDo', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                id: restaurants[i].id,
+                                lat: coords.lat,
+                                lng: coords.lng
+                            })
+                        });
+                    }
+                }
+            }
+            renderRestaurants(restaurants.filter(r => r.lat && r.lng));
+        }
+
+        function renderRestaurants(list) {
+            restaurantListDiv.innerHTML = '';
+            markers.forEach(m => m.setMap(null));
+            markers = [];
+
+            const validList = list.filter(r => r.lat && r.lng);
+            resultCount.innerText = `Tìm được ${validList.length} kết quả`;
+
+            validList.forEach(res => {
+                const marker = new google.maps.Marker({
+                    position: { lat: res.lat, lng: res.lng },
+                    map: map,
+                    title: res.name
+                });
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: `<strong>${res.name}</strong><br>${res.address}<br>☎ ${res.phone}`
+                });
+
+                marker.addListener('click', () => {
+                    infoWindow.open(map, marker);
+                });
+
+                markers.push(marker);
+
+                const div = document.createElement("div");
+                div.className = "restaurant-item";
+                div.innerHTML = `
+                    <h4>${res.name}</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ${res.address}</p>
+                    <p><i class="fas fa-phone"></i> ${res.phone}</p>
+                `;
+                div.addEventListener("click", () => {
+                    map.setCenter({ lat: res.lat, lng: res.lng });
+                    map.setZoom(15);
+                    infoWindow.open(map, marker);
+                });
+                restaurantListDiv.appendChild(div);
+            });
+        }
+
+        function filterRestaurants() {
+            const p = document.getElementById("provinceSelect").value;
+            const d = document.getElementById("districtSelect").value;
+            const filtered = restaurants.filter(r =>
+                (!p || r.province === p) && (!d || r.district === d)
+            );
+            renderRestaurants(filtered);
+        }
+
+        function updateDistricts() {
+            const p = document.getElementById("provinceSelect").value;
+            const dSelect = document.getElementById("districtSelect");
+            const districts = [...new Set(restaurants.filter(r => r.province === p).map(r => r.district))];
+            dSelect.innerHTML = '<option value="">Quận / Huyện</option>' +
+                districts.map(d => `<option value="${d}">${d}</option>`).join('');
+        }
+    </script>
+}
+
+@section Styles {
+    <style>
+        .banner-nhahang img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .restaurant-locator {
+            padding: 40px 20px;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+        }
+        .restaurant-locator h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #a82c1c;
+            margin-bottom: 30px;
+        }
+        .filters {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .filters select,
+        .btn-search {
+            background-color: #a82c1c;
+            color: white;
+            padding: 8px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+        .btn-search:hover {
+            background-color: #8c2213;
+            transform: translateY(-1px);
+        }
+        .restaurant-system {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .restaurant-list {
+            flex: 1 1 350px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .restaurant-item {
+            background: #f8f8f8;
+            border-left: 4px solid #fcb813;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .restaurant-item:hover {
+            background: #fff4e0;
+            cursor: pointer;
+        }
+        .restaurant-item h4 {
+            color: #a82c1c;
+            margin-bottom: 5px;
+        }
+        .restaurant-item p {
+            margin: 4px 0;
+            color: #444;
+            font-size: 14px;
+        }
+        .restaurant-item i {
+            margin-right: 6px;
+            color: #fcb813;
+        }
+        .map-wrapper {
+            flex: 1 1 600px;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+    </style>
+}

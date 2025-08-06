@@ -1,0 +1,285 @@
+@model TexasChicken.Models.ThucDon
+
+@{
+    ViewData["Title"] = "Thêm món ăn mới";
+    Layout = "_LayoutAdmin";
+    var danhMuc = ViewBag.DanhMuc as List<TexasChicken.Models.LoaiMon>;
+}
+
+<div class="page-header">
+    <h2>Thêm món ăn mới</h2>
+    <div class="top-buttons">
+        <a href="/ThucDon/QuanLy" class="btn btn-green">Danh sách</a>
+        <button type="button" class="btn btn-red" onclick="history.back()">Trở lại</button>
+    </div>
+</div>
+
+<form asp-action="Them" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Tên món ăn: <span class="text-danger">(*)</span></label>
+        <div class="form-control-wrap">
+            <input asp-for="TenMon" class="form-control" placeholder="Nhập tên món ăn" />
+            <span asp-validation-for="TenMon" class="field-validation-error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Giá gốc: <span class="text-danger">(*)</span></label>
+        <div class="form-control-wrap">
+            <input asp-for="GiaGoc" class="form-control" placeholder="Nhập giá gốc" />
+            <span asp-validation-for="GiaGoc" class="field-validation-error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Giá bán: <span class="text-danger">(*)</span></label>
+        <div class="form-control-wrap">
+            <input asp-for="GiaBan" class="form-control" placeholder="Nhập giá bán" />
+            <span asp-validation-for="GiaBan" class="field-validation-error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Mô tả:</label>
+        <div class="form-control-wrap">
+            <textarea asp-for="MoTa" class="form-control" rows="4" placeholder="Mô tả món ăn"></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Hình ảnh:</label>
+        <div class="form-control-wrap">
+            <input type="file" name="Upload" class="form-control" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Loại món: <span class="text-danger">(*)</span></label>
+        <div class="form-control-wrap">
+            <select asp-for="MaLoai" class="form-control">
+                <option value="">-- Chọn loại món --</option>
+                @foreach (var loai in danhMuc)
+                {
+                    <option value="@loai.MaLoai">@loai.TenLoai</option>
+                }
+            </select>
+            <span asp-validation-for="MaLoai" class="field-validation-error"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Hiển thị: <span class="text-danger">(*)</span></label>
+        <div class="radio-group">
+            <label class="custom-radio">
+                <input type="radio" name="TrangThai" value="true" checked />
+                <span class="radio-mark"></span>
+                Hiển thị
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="TrangThai" value="false" />
+                <span class="radio-mark"></span>
+                Ẩn
+            </label>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; padding-left: 310px;">
+        <button type="submit" class="btn btn-blue">Thêm mới</button>
+        <a href="/ThucDon/QuanLy" class="btn btn-gray">Hủy</a>
+    </div>
+</form>
+
+@section Styles {
+    <style>
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            padding-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            display: inline-block;
+            width: 200px;
+            padding-top: 12px;
+        }
+
+        .form-control-wrap {
+            display: flex;
+            flex-direction: column;
+            width: 690px;
+            margin-left: 7rem;
+        }
+
+        .form-control {
+            padding: 13px 15px;
+            border: 1px solid #ccc;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+
+        .form-control:focus {
+            border-color: #00c9a7;
+            outline: none;
+            box-shadow: 0 0 3px rgba(0, 201, 167, 0.4);
+        }
+
+        select.form-control {
+            height: 40px;
+            font-size: 0.85rem;
+            padding: 10px 15px;
+        }
+
+        select.form-control option {
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group {
+            display: inline-flex;
+            gap: 40px;
+            padding-left: 7rem;
+            padding-top: 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-blue {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-gray {
+            background-color: #e0e0e0;
+            color: black;
+            margin-left: 1.2rem;
+        }
+
+        .btn-gray:hover {
+            background-color: #ccc;
+        }
+
+        .btn-green {
+            background-color: #00c9a7;
+            color: white;
+        }
+
+        .btn-green:hover {
+            background-color: #00a98f;
+        }
+
+        .btn-red {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .btn-red:hover {
+            background-color: #c0392b;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        .btn-blue {
+            background-color: #f8b02d !important;
+        }
+
+        .btn-blue:hover,
+        .btn-blue:active {
+            background-color: #e69b07 !important;
+        }
+
+        .btn-red {
+            background-color: #9a3324 !important;
+        }
+
+        .btn-red:hover,
+        .btn-red:active {
+            background-color: #7a1f16 !important;
+        }
+
+        .custom-radio {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .custom-radio input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-mark {
+            position: absolute;
+            top: 65%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 14px;
+            width: 14px;
+            background-color: transparent;
+            border: 2px solid #9a3324;
+            /* viền đỏ */
+            border-radius: 50%;
+        }
+
+        .custom-radio input:checked~.radio-mark {
+            background-color: #f8b02d;
+            /* chấm vàng */
+            box-shadow: inset 0 0 0 4px white;
+            /* tạo hiệu ứng chấm */
+        }
+    </style>
+}

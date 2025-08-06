@@ -1,0 +1,268 @@
+@model TexasChicken.Models.TinTuc
+
+@{
+    ViewData["Title"] = "Sửa Tin Tức";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="page-header">
+    <h2>Sửa thông tin tin tức</h2>
+    <div class="top-buttons">
+        <button type="button" class="btn btn-red" onclick="history.back()">Trở lại</button>
+    </div>
+</div>
+
+<form asp-action="Sua" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="MaTin" />
+
+    <div class="form-group">
+        <label>Tiêu đề :<span class="text-danger">(*)</span></label>
+        <div class="form-input">
+            <input asp-for="TieuDe" class="form-control" placeholder="Tiêu đề tin tức..." />
+            <span asp-validation-for="TieuDe" class="text-danger small validation-message"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Nội dung:</label>
+        <div class="form-input">
+            <textarea asp-for="NoiDung" class="form-control" rows="5" placeholder="Nội dung chi tiết..."></textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Hình ảnh hiện tại:</label>
+        <div class="form-input">
+            <div class="image-input">
+                @if (!string.IsNullOrEmpty(Model.HinhAnh))
+                {
+                    <img src="@Url.Content($"~/images/TinTuc/{Model.HinhAnh}")"
+                         width="80" height="80" class="rounded border shadow-sm" style="object-fit: cover;" />
+                }
+                <input type="file" name="Upload" class="form-control-upload" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Tác giả:</label>
+        <div class="form-input">
+            <input asp-for="TacGia" class="form-control" placeholder="Tên tác giả..." />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Hiển thị: <span class="text-danger">(*)</span></label>
+        <div class="radio-group">
+            <label class="custom-radio">
+                <input type="radio" name="TrangThai" value="true" checked />
+                <span class="radio-mark"></span>
+                Hiển thị
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="TrangThai" value="false" />
+                <span class="radio-mark"></span>
+                Ẩn
+            </label>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; padding-left: 310px;">
+        <button type="submit" class="btn btn-blue">Lưu</button>
+        <a href="/TinTuc/QuanLy" class="btn btn-gray">Hủy</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@section Styles {
+    <style>
+        /* Giữ nguyên style giống phần Sửa Loại Món */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+            padding-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            display: inline-block;
+            width: 200px;
+            padding-top: 10px;
+        }
+
+        .form-input {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-control {
+            width: 690px;
+            padding: 13px 15px;
+            border: 1px solid #ccc;
+            margin-left: 7rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+        }
+
+        .form-control:focus {
+            border-color: #00c9a7;
+            outline: none;
+            box-shadow: 0 0 3px rgba(0, 201, 167, 0.4);
+        }
+
+        .form-control-upload {
+            width: 350px;
+            margin-left: 1.5rem;
+            padding: 10px;
+            font-size: 0.85rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .image-input {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: 7rem;
+        }
+
+        .radio-group {
+            display: inline-flex;
+            padding-left: 7rem;
+            gap: 30px;
+        }
+
+        .btn {
+            padding: 6px 10px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-blue {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .btn-blue:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-gray {
+            background-color: #e0e0e0;
+            color: black;
+            margin-left: 1.2rem;
+        }
+
+        .btn-gray:hover {
+            background-color: #ccc;
+        }
+
+        .btn-green {
+            background-color: #00c9a7;
+            color: white;
+        }
+
+        .btn-red {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        .validation-message {
+            margin-left: 7rem;
+            margin-top: 4px;
+        }
+
+        .small {
+            font-size: 0.85rem;
+        }
+
+        .btn-blue {
+            background-color: #f8b02d !important;
+        }
+
+        .btn-blue:hover,
+        .btn-blue:active {
+            background-color: #e69b07 !important;
+        }
+
+        .btn-red {
+            background-color: #9a3324 !important;
+        }
+
+        .btn-red:hover,
+        .btn-red:active {
+            background-color: #7a1f16 !important;
+        }
+
+        .custom-radio {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .custom-radio input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .radio-mark {
+            position: absolute;
+            top: 65%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 14px;
+            width: 14px;
+            background-color: transparent;
+            border: 2px solid #9a3324;
+            /* viền đỏ */
+            border-radius: 50%;
+        }
+
+        .custom-radio input:checked~.radio-mark {
+            background-color: #f8b02d;
+            /* chấm vàng */
+            box-shadow: inset 0 0 0 4px white;
+            /* tạo hiệu ứng chấm */
+        }
+    </style>
+}

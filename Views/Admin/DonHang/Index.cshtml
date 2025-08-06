@@ -1,0 +1,121 @@
+@model List<TexasChicken.Models.DonHang>
+
+@{
+    ViewData["Title"] = "Quản Lý Đơn Hàng";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Danh Sách Đơn Hàng</h2>
+    <button type="button" class="btn btn-back" onclick="history.back()">
+        <i class="fas fa-arrow-left"></i> Trở lại
+    </button>
+</div>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light text-center">
+        <tr>
+            <th style="width:5%">Mã</th>
+            <th style="width:18%">Khách hàng</th>
+            <th style="width:12%">Ngày đặt</th>
+            <th style="width:14%">Trạng thái</th>
+            <th style="width:12%">Tổng tiền</th>
+            <th style="width:15%">Giao hàng</th>
+            <th style="width:5%">Chi tiết</th>
+            <th style="width:5%">Xoá</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dh in Model)
+        {
+            <tr>
+                <td class="text-center">@dh.MaDonHang</td>
+                <td>@dh.HoTen<br /><small class="text-muted">@dh.SoDienThoai</small></td>
+                <td class="text-center">@dh.NgayDat.ToString("dd/MM/yyyy HH:mm")</td>
+                <td class="text-center">
+                    <form asp-action="CapNhatTrangThai" asp-controller="DonHang" method="post">
+                        <input type="hidden" name="id" value="@dh.MaDonHang" />
+                        <select name="trangThai" onchange="this.form.submit()" class="form-select form-select-sm text-center">
+                            <option value="Đang xử lý" selected="@(dh.TrangThai == "Đang xử lý")">Đang xử lý</option>
+                            <option value="Đã giao" selected="@(dh.TrangThai == "Đã giao")">Đã giao</option>
+                            <option value="Đã huỷ" selected="@(dh.TrangThai == "Đã huỷ")">Đã huỷ</option>
+                        </select>
+                    </form>
+                </td>
+                <td class="text-end">@dh.TongTien.ToString("N0") đ</td>
+                <td class="text-start">@dh.PhuongThucGiaoHang<br /><small>@dh.DiaChiGiaoHang</small></td>
+                <td class="text-center">
+                    <a href="/DonHang/ChiTiet/@dh.MaDonHang" class="text-success icon-btn" title="Xem chi tiết">
+                        <i class="fas fa-eye fa-lg" style="color: #f8b02d;"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <form asp-action="Xoa" asp-controller="DonHang" method="post"
+                          onsubmit="return confirm('Bạn có chắc muốn xoá đơn hàng này không?');">
+                        <input type="hidden" name="id" value="@dh.MaDonHang" />
+                        <button type="submit" class="icon-btn text-danger" title="Xoá đơn hàng">
+                            <i class="fas fa-trash-alt fa-lg" style="color: #9a3324;"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Styles {
+    <style>
+        .btn-back {
+            background-color: #a3281d;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #841f16;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.15);
+            opacity: 0.8;
+        }
+
+        .form-select-sm {
+            font-size: 14px;
+            padding: 3px 8px;
+        }
+
+        .table td,
+        .table th {
+            padding: 12px 10px;
+            letter-spacing: 0.5px;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        .text-muted {
+            font-size: 13px;
+        }
+
+        .btn-back {
+            background-color: #9a3324 !important;
+        }
+
+        .btn-back:hover,
+        .btn-back:active {
+            background-color: #7a1f16 !important;
+        }
+    </style>
+}

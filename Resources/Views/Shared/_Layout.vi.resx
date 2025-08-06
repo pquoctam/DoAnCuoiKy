@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="Home" xml:space="preserve"><value>TRANG CHỦ</value></data>
+  <data name="Menu" xml:space="preserve"><value>THỰC ĐƠN</value></data>
+  <data name="News" xml:space="preserve"><value>TIN TỨC</value></data>
+  <data name="Restaurant" xml:space="preserve"><value>NHÀ HÀNG</value></data>
+  <data name="About" xml:space="preserve"><value>VỀ TEXAS CHICKEN</value></data>
+  <data name="Login" xml:space="preserve"><value>ĐĂNG NHẬP</value></data>
+  <data name="Logout" xml:space="preserve"><value>ĐĂNG XUẤT</value></data>
+  <data name="SearchPlaceholder" xml:space="preserve"><value>Tìm món ăn...</value></data>
+  <data name="Account" xml:space="preserve"><value>Tài khoản của bạn</value></data>
+  <data name="ForgotPassword" xml:space="preserve"><value>Quên mật khẩu?</value></data>
+  <data name="Register" xml:space="preserve"><value>Đăng ký ngay</value></data>
+  <data name="EnterEmail" xml:space="preserve"><value>Email / Số điện thoại</value></data>
+  <data name="EnterPassword" xml:space="preserve"><value>Mật khẩu</value></data>
+  <data name="LoginTitle" xml:space="preserve"><value>VUI LÒNG ĐĂNG NHẬP</value></data>
+  <data name="Subscribe" xml:space="preserve"><value>Đăng ký nhận thông tin ưu đãi</value></data>
+  <data name="YourEmail" xml:space="preserve"><value>Email của bạn</value></data>
+  <data name="Send" xml:space="preserve"><value>Gửi</value></data>
+  <data name="Contact" xml:space="preserve"><value>Liên hệ</value></data>
+  <data name="ViewMap" xml:space="preserve"><value>Xem bản đồ</value></data>
+  <data name="Policy" xml:space="preserve"><value>Chính sách quy định</value></data>
+  <data name="Privacy" xml:space="preserve"><value>Chính sách bảo mật</value></data>
+  <data name="FooterAddress" xml:space="preserve"><value>202 Lý Chính Thắng, Quận 3, TP.HCM</value></data>
+  <data name="FooterPhone" xml:space="preserve"><value>(028) 393 11 039</value></data>
+  <data name="FooterEmail" xml:space="preserve"><value>info.texaschicken@fb.mesa.vn</value></data>
+  <data name="FooterWebsite" xml:space="preserve"><value>www.texaschickenvn.com</value></data>
+  <data name="Info" xml:space="preserve"><value>Thông tin</value></data>
+  <data name="Connect" xml:space="preserve"><value>Kết nối</value></data>
+  <data name="CompanyName" xml:space="preserve"><value>TEXAS CHICKEN VIETNAM</value></data>
+  <data name="InfoTitle" xml:space="preserve"><value>Thông tin</value></data>
+  <data name="ConnectWithUs" xml:space="preserve"><value>Kết nối với Texas Chicken</value></data>
+  <data name="SubscribeTitle" xml:space="preserve"><value>Đăng ký nhận thông tin ưu đãi</value></data>
+  <data name="RegisterEmailPlaceholder" xml:space="preserve"><value>Email của bạn</value></data>
+  <data name="SocialFacebook" xml:space="preserve"><value>Facebook</value></data>
+  <data name="SocialYouTube" xml:space="preserve"><value>YouTube</value></data>
+  <data name="SocialInstagram" xml:space="preserve"><value>Instagram</value></data>
+  <data name="CopyRight" xml:space="preserve"><value>&#169; 2022 Texas Chicken Vietnam – Giấy phép kinh doanh số: xxxx – Sở KHĐT tỉnh ABC</value></data>
+  <data name="ErrorLoginMessage" xml:space="preserve"><value>Đăng nhập không hợp lệ. Vui lòng thử lại.</value></data>
+  <data name="NoAccount" xml:space="preserve"><value>Bạn chưa có tài khoản?</value></data>
+  <data name="LoginButton" xml:space="preserve"><value>ĐĂNG NHẬP</value></data>
+  <data name="RegisterLink" xml:space="preserve"><value>Đăng ký ngay</value></data>
+  <data name="CartTitle" xml:space="preserve"><value>Giỏ hàng</value></data>
+  <data name="SearchButton" xml:space="preserve"><value>Tìm kiếm</value></data>
+  <data name="SeeDetails" xml:space="preserve"><value>Xem chi tiết</value></data>
+</root>

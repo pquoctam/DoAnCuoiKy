@@ -1,0 +1,187 @@
+@model List<TexasChicken.Models.ThucDon>
+
+@{
+    ViewData["Title"] = "Quản Lý Món Ăn";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Danh Sách Món Ăn</h2>
+
+    <div class="d-flex gap-2">
+        <form method="get" action="/ThucDon/Them">
+            <button type="submit" class="btn btn-addnew">
+                <i class="fas fa-plus"></i> Thêm
+            </button>
+        </form>
+
+        <button type="button" class="btn btn-back" onclick="history.back()">
+            <i class="fas fa-arrow-left"></i> Trở lại
+        </button>
+    </div>
+</div>
+
+<table class="table table-bordered table-hover align-middle">
+    <thead class="table-light text-center">
+        <tr>
+            <th style="width: 5%;">Mã món</th>
+            <th style="width: 15%;">Tên món</th>
+            <th style="width: 10%;">Giá bán</th>
+            <th style="width: 10%;">Giá gốc</th>
+            <th style="width: 10%;">Loại món</th>
+            <th style="width: 10%;">Hình ảnh</th>
+            <th style="width: 8%;">Trạng thái</th>
+            <th style="width: 10%;">Ngày tạo</th>
+            <th style="width: 10%;">Ngày cập nhật</th>
+            <th style="width: 7%;">Topping</th>
+            <th style="width: 5%;">Edit</th>
+            <th style="width: 5%;">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@item.MaMon</td>
+                <td class="text-start">@item.TenMon</td>
+                <td class="text-end">@item.GiaBan.ToString("N0") đ</td>
+                <td class="text-end">@item.GiaGoc.ToString("N0") đ</td>
+                <td class="text-center">@item.LoaiMon?.TenLoai</td>
+                <td class="text-center">
+                    @if (!string.IsNullOrEmpty(item.HinhAnh))
+                    {
+                        <img src="@Url.Content($"~/images/ThucDon/{item.HinhAnh}")" width="60" height="60" style="object-fit:cover;" />
+                    }
+                </td>
+                <td class="text-center">
+                    @if (item.TrangThai)
+                    {
+                        <span style="color: green;"><i class="fas fa-check-circle"></i></span>
+                    }
+                    else
+                    {
+                        <span style="color: red;"><i class="fas fa-times-circle"></i></span>
+                    }
+                </td>
+                <td class="text-center">@item.NgayTao.ToString("dd/MM/yyyy HH:mm")</td>
+                <td class="text-center">
+                    @(item.NgayCapNhat.HasValue ? item.NgayCapNhat.Value.ToString("dd/MM/yyyy HH:mm") : "")
+                </td>
+                <td class="text-center">
+                    <a href="/ThucDon/GanTopping/@item.MaMon" class="text-info">
+                        <i class="fas fa-plus-circle fa-lg" style="color: #00c9a7;"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/ThucDon/Sua/@item.MaMon" class="text-success">
+                        <i class="fas fa-edit fa-lg" style="color: #f8b02d;"></i>
+                    </a>
+                </td>
+                <td class="text-center">
+                    <a href="/ThucDon/Xoa/@item.MaMon" class="text-danger"
+                       onclick="return confirm('Bạn có chắc muốn xoá món này không?')">
+                        <i class="fas fa-trash-alt fa-lg" style="color: #9a3324;"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- PHÂN TRANG -->
+@if (ViewBag.TotalPages > 1)
+{
+    <div class="d-flex justify-content-center mt-4">
+        <ul class="custom-pagination text-center m-0">
+            @if (ViewBag.CurrentPage > 1)
+            {
+                <li>
+                    <a href="@Url.Action("QuanLy", new { page = ViewBag.CurrentPage - 1 })">&lt;</a>
+                </li>
+            }
+
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                <li>
+                    <a class="@(i == ViewBag.CurrentPage ? "active" : "")" href="@Url.Action("QuanLy", new { page = i })">@i</a>
+                </li>
+            }
+
+            @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+            {
+                <li>
+                    <a href="@Url.Action("QuanLy", new { page = ViewBag.CurrentPage + 1 })">&gt;</a>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@section Styles {
+    <style>
+        .custom-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+            padding-left: 0;
+            margin: 0 auto;
+        }
+
+        .custom-pagination li {
+            display: inline-block;
+        }
+
+        .custom-pagination li a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .custom-pagination li a.active {
+            background-color: #a3281d;
+            color: white;
+            border-color: #a3281d;
+        }
+
+        .custom-pagination li a:hover:not(.active) {
+            border-color: #a3281d;
+            color: #a3281d;
+        }
+
+        .table td, .table th {
+            padding: 12px 10px;
+            letter-spacing: 0.5px;
+            line-height: 1.5;
+            vertical-align: middle;
+            font-size: 15px;
+        }
+
+        .btn-addnew {
+            background-color: #f8b02d !important;
+        }
+
+        .btn-addnew:hover,
+        .btn-addnew:active {
+            background-color: #e69b07 !important;
+        }
+
+        .btn-back {
+            background-color: #9a3324 !important;
+        }
+
+        .btn-back:hover,
+        .btn-back:active {
+            background-color: #7a1f16 !important;
+        }
+    </style>
+}

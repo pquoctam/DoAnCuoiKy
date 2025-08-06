@@ -1,0 +1,23 @@
+@model IEnumerable<dynamic>
+
+<div class="swiper comboSwiper">
+    <div class="swiper-wrapper">
+        @foreach (var combo in Model)
+        {
+            <div class="swiper-slide combo-card">
+                <img src="@combo.ImageUrl" alt="@combo.Title" />
+                <h3>@combo.Title</h3>
+                <p class="price">
+                    Giá: <span class="current">@combo.CurrentPrice</span>
+                    @if (combo.OriginalPrice != null)
+                    {
+                        <span class="original">@combo.OriginalPrice</span>
+                    }
+                </p>
+                <a asp-controller="ThucDon" asp-action="ChiTiet" asp-route-id="@combo.MaMon" style="text-decoration: none;">
+                    <button>XEM CHI TIẾT</button>
+                </a>
+            </div>
+        }
+    </div>
+</div>

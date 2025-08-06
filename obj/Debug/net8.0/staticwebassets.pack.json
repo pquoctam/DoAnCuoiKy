@@ -1,0 +1,773 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/obj/Debug/net8.0/scopedcss/projectbundle/TexasChicken.bundle.scp.css",
+      "PackagePath": "staticwebassets/TexasChicken.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/css/dangky.css",
+      "PackagePath": "staticwebassets/css/dangky.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/css/thucdon.css",
+      "PackagePath": "staticwebassets/css/thucdon.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/AFC.png",
+      "PackagePath": "staticwebassets/images/About/AFC.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/BigChicken.png",
+      "PackagePath": "staticwebassets/images/About/BigChicken.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/Bill.png",
+      "PackagePath": "staticwebassets/images/About/Bill.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/Franchise.png",
+      "PackagePath": "staticwebassets/images/About/Franchise.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/George.png",
+      "PackagePath": "staticwebassets/images/About/George.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/One-Billion.png",
+      "PackagePath": "staticwebassets/images/About/One-Billion.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/baibao.png",
+      "PackagePath": "staticwebassets/images/About/baibao.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/buaan.png",
+      "PackagePath": "staticwebassets/images/About/buaan.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/chiendich.png",
+      "PackagePath": "staticwebassets/images/About/chiendich.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/chinhanh.png",
+      "PackagePath": "staticwebassets/images/About/chinhanh.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/conduong.png",
+      "PackagePath": "staticwebassets/images/About/conduong.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/congty.png",
+      "PackagePath": "staticwebassets/images/About/congty.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/cuahangtexas.png",
+      "PackagePath": "staticwebassets/images/About/cuahangtexas.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/dienmao.png",
+      "PackagePath": "staticwebassets/images/About/dienmao.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/disan.png",
+      "PackagePath": "staticwebassets/images/About/disan.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/khaitruong.png",
+      "PackagePath": "staticwebassets/images/About/khaitruong.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/linhvat.png",
+      "PackagePath": "staticwebassets/images/About/linhvat.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/nangcap.png",
+      "PackagePath": "staticwebassets/images/About/nangcap.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/nhahang.png",
+      "PackagePath": "staticwebassets/images/About/nhahang.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/phucvu.png",
+      "PackagePath": "staticwebassets/images/About/phucvu.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/quangcao.png",
+      "PackagePath": "staticwebassets/images/About/quangcao.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/thanhpho.png",
+      "PackagePath": "staticwebassets/images/About/thanhpho.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/About/truyenthong.png",
+      "PackagePath": "staticwebassets/images/About/truyenthong.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Combo1.png",
+      "PackagePath": "staticwebassets/images/Combo1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Combo2.png",
+      "PackagePath": "staticwebassets/images/Combo2.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Combo3.png",
+      "PackagePath": "staticwebassets/images/Combo3.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ComboA.png",
+      "PackagePath": "staticwebassets/images/ComboA.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ComboB.png",
+      "PackagePath": "staticwebassets/images/ComboB.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/12eca51e-0b19-400b-97fa-777d03c63183_Screenshot 2025-07-15 at 20.40.25.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/12eca51e-0b19-400b-97fa-777d03c63183_Screenshot 2025-07-15 at 20.40.25.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Banh_cuon_Tex.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Banh_cuon_Tex.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Burger_Mexicana.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Burger_Mexicana.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Chicken_Box_12PCs.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Chicken_Box_12PCs.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Combo_C.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Combo_C.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Combo_Gion_Tan_C.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Combo_Gion_Tan_C.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Combo_Tiet_Kiem_A.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Combo_Tiet_Kiem_A.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Combo_Vui_Ve_D.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Combo_Vui_Ve_D.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Ga_gion_co_xuong___1_mieng_1.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Ga_gion_co_xuong___1_mieng_1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Ga_sot_bo_toi_thao_moc_danh_muc.jpg",
+      "PackagePath": "staticwebassets/images/LoaiMon/Ga_sot_bo_toi_thao_moc_danh_muc.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Khoai_tay_chien_co_lon.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Khoai_tay_chien_co_lon.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-15 at 23.43.47.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-15 at 23.43.47.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-18 at 07.54.37.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-18 at 07.54.37.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-30 at 17.19.26.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-30 at 17.19.26.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-30 at 17.27.55.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-30 at 17.27.55.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-30 at 17.41.22.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-30 at 17.41.22.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-07-30 at 18.15.53.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-07-30 at 18.15.53.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-08-05 at 13.17.44.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-08-05 at 13.17.44.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/Screenshot 2025-08-05 at 13.20.05.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/Screenshot 2025-08-05 at 13.20.05.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/c30f2b9d-1421-4228-9694-3179ca7f3be0_Screenshot 2025-07-15 at 23.43.47.png",
+      "PackagePath": "staticwebassets/images/LoaiMon/c30f2b9d-1421-4228-9694-3179ca7f3be0_Screenshot 2025-07-15 at 23.43.47.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/com-ga-chua-ngot.jpg",
+      "PackagePath": "staticwebassets/images/LoaiMon/com-ga-chua-ngot.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/LoaiMon/combo-my-y-ga-co-xuong.jpg",
+      "PackagePath": "staticwebassets/images/LoaiMon/combo-my-y-ga-co-xuong.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Texas_Chicken_logo2.png",
+      "PackagePath": "staticwebassets/images/Texas_Chicken_logo2.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/4_Mieng_Ga_sot_bo_toi__thao_moc.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/4_Mieng_Ga_sot_bo_toi__thao_moc.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Banh_cuon_Tex.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Banh_cuon_Tex.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Burger_Mexicana.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Burger_Mexicana.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Chicken_Box_5PCs.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Chicken_Box_5PCs.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Chicken_Box_9PCs.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Chicken_Box_9PCs.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_A_1.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_A_1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_A_Ga_sot_bo_toi__thao_moc.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_A_Ga_sot_bo_toi__thao_moc.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_B_1.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_B_1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_B_Ga_sot_bo_toi__thao_moc.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_B_Ga_sot_bo_toi__thao_moc.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_C.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_C.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Gion_Tan_A.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Gion_Tan_A.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Gion_Tan_B.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Gion_Tan_B.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Gion_Tan_D.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Gion_Tan_D.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Tiet_Kiem_A.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Tiet_Kiem_A.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Tiet_Kiem_B.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Tiet_Kiem_B.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Vui_Ve_B.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Vui_Ve_B.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Vui_Ve_C.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Vui_Ve_C.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Combo_Vui_Ve_D.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Combo_Vui_Ve_D.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Ga_gion_co_xuong___1_mieng_1.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Ga_gion_co_xuong___1_mieng_1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Ga_gion_khong_xuong___6_mieng.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Ga_gion_khong_xuong___6_mieng.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Khoai_tay_chien_co_lon.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Khoai_tay_chien_co_lon.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Khoai_tay_chien_pho_mai.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/Khoai_tay_chien_pho_mai.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Screenshot 2025-07-15 at 20.40.25.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Screenshot 2025-07-15 at 20.40.25.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Screenshot 2025-07-15 at 20.46.02.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Screenshot 2025-07-15 at 20.46.02.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Screenshot 2025-07-21 at 11.55.00.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Screenshot 2025-07-21 at 11.55.00.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Screenshot 2025-07-22 at 23.07.25.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Screenshot 2025-07-22 at 23.07.25.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/Screenshot 2025-08-05 at 13.27.24.png",
+      "PackagePath": "staticwebassets/images/ThucDon/Screenshot 2025-08-05 at 13.27.24.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/com-ga-chua-ngot.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/com-ga-chua-ngot.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/com-ga-teriyaki.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/com-ga-teriyaki.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/combo-my-y-ga-co-xuong.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/combo-my-y-ga-co-xuong.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ThucDon/combo-my-y-ga-khong-xuong.jpg",
+      "PackagePath": "staticwebassets/images/ThucDon/combo-my-y-ga-khong-xuong.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/317718093_2724446671020264_8496907873597464248_n_1.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/317718093_2724446671020264_8496907873597464248_n_1.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/Danh_sach_nha_hang_TXC_Viet_Nam.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/Danh_sach_nha_hang_TXC_Viet_Nam.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/PVT_KT.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/PVT_KT.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/Screenshot 2025-08-05 at 13.20.05.png",
+      "PackagePath": "staticwebassets/images/TinTuc/Screenshot 2025-08-05 at 13.20.05.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/Screenshot 2025-08-05 at 13.27.24.png",
+      "PackagePath": "staticwebassets/images/TinTuc/Screenshot 2025-08-05 at 13.27.24.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/TXC_KTCT.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/TXC_KTCT.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/TXC_Party.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/TXC_Party.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/khaitruongsora.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/khaitruongsora.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/TinTuc/ktpmh.jpg",
+      "PackagePath": "staticwebassets/images/TinTuc/ktpmh.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/09ae2729-56d9-4aa3-be3c-6ab68fc7ccfd_Screenshot 2025-07-18 at 07.54.37.png",
+      "PackagePath": "staticwebassets/images/Topping/09ae2729-56d9-4aa3-be3c-6ab68fc7ccfd_Screenshot 2025-07-18 at 07.54.37.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Banh_cuon_Tex.png",
+      "PackagePath": "staticwebassets/images/Topping/Banh_cuon_Tex.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Bap_cai_tron_co_lon.png",
+      "PackagePath": "staticwebassets/images/Topping/Bap_cai_tron_co_lon.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Ga_gion_co_xuong___1_mieng_1.png",
+      "PackagePath": "staticwebassets/images/Topping/Ga_gion_co_xuong___1_mieng_1.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Ga_gion_khong_xuong___6_mieng.png",
+      "PackagePath": "staticwebassets/images/Topping/Ga_gion_khong_xuong___6_mieng.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Khoai_tay_nghien_co_lon.png",
+      "PackagePath": "staticwebassets/images/Topping/Khoai_tay_nghien_co_lon.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/Khuyu_canh_ga_cay___6_mieng.png",
+      "PackagePath": "staticwebassets/images/Topping/Khuyu_canh_ga_cay___6_mieng.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/a610a957-a270-4fd6-8a9f-58f4be4a7108_Screenshot 2025-07-15 at 23.43.47.png",
+      "PackagePath": "staticwebassets/images/Topping/a610a957-a270-4fd6-8a9f-58f4be4a7108_Screenshot 2025-07-15 at 23.43.47.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/nuoc-suoi-dasani-350ml.jpg",
+      "PackagePath": "staticwebassets/images/Topping/nuoc-suoi-dasani-350ml.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/nuocngot.png",
+      "PackagePath": "staticwebassets/images/Topping/nuocngot.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/tuongca.jpg",
+      "PackagePath": "staticwebassets/images/Topping/tuongca.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Topping/tuongot.jpeg",
+      "PackagePath": "staticwebassets/images/Topping/tuongot.jpeg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/Zalo.png",
+      "PackagePath": "staticwebassets/images/Zalo.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/account.jpg",
+      "PackagePath": "staticwebassets/images/account.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/anhnen1.jpg",
+      "PackagePath": "staticwebassets/images/anhnen1.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner1.jpg",
+      "PackagePath": "staticwebassets/images/banner1.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner2.jpg",
+      "PackagePath": "staticwebassets/images/banner2.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner3.jpg",
+      "PackagePath": "staticwebassets/images/banner3.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner4.jpg",
+      "PackagePath": "staticwebassets/images/banner4.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner5.jpg",
+      "PackagePath": "staticwebassets/images/banner5.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/banner6.jpg",
+      "PackagePath": "staticwebassets/images/banner6.jpg"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/dichvu.png",
+      "PackagePath": "staticwebassets/images/dichvu.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/doinetve.png",
+      "PackagePath": "staticwebassets/images/doinetve.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/ga.png",
+      "PackagePath": "staticwebassets/images/ga.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/nen.png",
+      "PackagePath": "staticwebassets/images/nen.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/nuocngot.png",
+      "PackagePath": "staticwebassets/images/nuocngot.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/section.png",
+      "PackagePath": "staticwebassets/images/section.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/images/texaschicken.png",
+      "PackagePath": "staticwebassets/images/texaschicken.png"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/js/ComboSwiper.js",
+      "PackagePath": "staticwebassets/js/ComboSwiper.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/js/DropDown.js",
+      "PackagePath": "staticwebassets/js/DropDown.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/js/NewsSwiper.js",
+      "PackagePath": "staticwebassets/js/NewsSwiper.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/js/login-modal.js",
+      "PackagePath": "staticwebassets/js/login-modal.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.TexasChicken.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.TexasChicken.props",
+      "PackagePath": "build\\TexasChicken.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.TexasChicken.props",
+      "PackagePath": "buildMultiTargeting\\TexasChicken.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.TexasChicken.props",
+      "PackagePath": "buildTransitive\\TexasChicken.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

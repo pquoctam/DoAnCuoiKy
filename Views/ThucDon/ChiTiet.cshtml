@@ -1,0 +1,554 @@
+@model TexasChicken.Models.ThucDon
+
+@{
+    ViewData["Title"] = "Chi tiết món ăn";
+    Layout = "_Layout";
+    var danhMuc = ViewBag.DanhMuc as List<TexasChicken.Models.LoaiMon>;
+    var toppings = ViewBag.Toppings as List<TexasChicken.Models.Topping>;
+}
+<div class="menu-container">
+    <aside class="category-sidebar">
+        <ul>
+            @if (danhMuc != null)
+            {
+                foreach (var loai in danhMuc)
+                {
+                    <li>
+                        <a href="/ThucDon/Index?maLoai=@loai.MaLoai">@loai.TenLoai.ToUpper()</a>
+                    </li>
+                }
+            }
+        </ul>
+    </aside>
+
+    <div class="detail-layout">
+        <div class="detail-left">
+            <div class="image-frame">
+                <img src="~/images/ThucDon/@Model.HinhAnh" class="detail-main-img" />
+            </div>
+            <div class="thumbnail-wrapper">
+                <img src="~/images/ThucDon/@Model.HinhAnh" class="detail-thumb-img" />
+            </div>
+        </div>
+
+        <div class="detail-right">
+            <h2 class="detail-title">@Model.TenMon.ToUpper()</h2>
+            <div class="gia-ban">
+                <span class="gia-label">Giá bán:</span>
+                <span class="gia-value">@Model.GiaBan.ToString("N0")<span class="vnd">đ</span></span>
+            </div>
+
+            <div class="mo-ta">
+                @Html.Raw(Model.MoTa?.Replace("\n", "<br />"))
+            </div>
+
+            @if (toppings != null && toppings.Any())
+            {
+                <div class="topping-section">
+                    @foreach (var group in toppings.GroupBy(t => t.Loai))
+                    {
+                        <div class="accordion-item">
+                            <button class="accordion-header" type="button">CHỌN @group.Key.ToUpper()
+                                <i class="fa-solid fa-chevron-down arrow-icon"></i>
+                            </button>
+                            <div class="accordion-content">
+                                @foreach (var t in group)
+                                {
+                                    <label class="topping-card">
+                                        <img src="~/images/Topping/@t.HinhAnh" class="topping-img" />
+                                        <div class="topping-info">
+                                            <span class="topping-name">@t.TenTopping</span>
+                                            <span class="topping-price">@t.GiaTopping.ToString("N0")đ</span>
+                                        </div>
+                                        <input type="hidden" name="toppingId" value="@t.MaTopping" />
+                                        <div class="topping-qty-box">
+                                            <button type="button" class="topping-minus" data-id="@t.MaTopping"
+                                                data-gia="@t.GiaTopping">−</button>
+                                            <input type="text" class="topping-qty" data-id="@t.MaTopping" value="0" readonly />
+                                            <button type="button" class="topping-plus" data-id="@t.MaTopping"
+                                                data-gia="@t.GiaTopping">+</button>
+                                        </div>
+                                    </label>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="price-row">
+                <div class="quantity-box">
+                    <button type="button" class="qty-btn minus">−</button>
+                    <input type="text" id="quantity" name="quantity" value="1" readonly />
+                    <button type="button" class="qty-btn plus">+</button>
+                </div>
+                <div class="total-price-box">
+                    <span class="total-label">Tổng:</span>
+                    <span id="total-price">@Model.GiaBan.ToString("N0")<span class="vnd">đ</span></span>
+                </div>
+            </div>
+
+            <div class="add-cart-wrapper">
+                <a href="/GioHang/Index" class="cart-icon-wrapper" style="position: relative;">
+                    <i class="fas fa-shopping-cart"></i>
+                    @{
+                        int count = Context.Session.GetInt32("CartCount") ?? 0;
+                        if (count > 0)
+                        {
+                            <span class="cart-count">@count</span>
+                        }
+                    }
+                </a>
+
+                <form id="addCartForm" method="post" action="/GioHang/Them">
+                    <input type="hidden" name="maMon" value="@Model.MaMon" />
+                    <input type="hidden" id="quantityInput" name="quantity" value="1" />
+                    <button type="submit" class="btn-add-cart">THÊM VÀO GIỎ HÀNG</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const headers = document.querySelectorAll('.accordion-header');
+            headers.forEach(header => {
+                header.addEventListener('click', function () {
+                    const item = this.parentElement;
+                    item.classList.toggle('active');
+                });
+            });
+
+            const minusBtn = document.querySelector('.qty-btn.minus');
+            const plusBtn = document.querySelector('.qty-btn.plus');
+            const quantityInput = document.getElementById('quantity');
+
+            minusBtn.addEventListener('click', function () {
+                let qty = parseInt(quantityInput.value);
+                if (qty > 1) quantityInput.value = qty - 1;
+                updateTotal();
+            });
+
+            plusBtn.addEventListener('click', function () {
+                let qty = parseInt(quantityInput.value);
+                quantityInput.value = qty + 1;
+                updateTotal();
+            });
+
+            const totalPriceSpan = document.getElementById('total-price');
+            const basePrice = @Model.GiaBan;
+
+            function formatPrice(value) {
+                return value.toLocaleString('vi-VN') + 'đ';
+            }
+
+            function updateTotal() {
+                let quantity = parseInt(quantityInput.value);
+                let toppingTotal = 0;
+
+                document.querySelectorAll('.topping-qty').forEach(input => {
+                    const qty = parseInt(input.value);
+                    const id = input.dataset.id;
+                    const price = parseInt(document.querySelector(`button.topping-plus[data-id="${id}"]`).dataset.gia);
+                    toppingTotal += qty * price;
+                });
+
+                let total = basePrice * quantity + toppingTotal;
+                totalPriceSpan.innerHTML = formatPrice(total);
+            }
+
+            document.querySelectorAll('.topping-plus').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.dataset.id;
+                    const input = document.querySelector(`.topping-qty[data-id="${id}"]`);
+                    input.value = parseInt(input.value) + 1;
+                    updateTotal();
+                });
+            });
+
+            document.querySelectorAll('.topping-minus').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.dataset.id;
+                    const input = document.querySelector(`.topping-qty[data-id="${id}"]`);
+                    if (parseInt(input.value) > 0) {
+                        input.value = parseInt(input.value) - 1;
+                        updateTotal();
+                    }
+                });
+            });
+
+            updateTotal();
+
+            const form = document.getElementById('addCartForm');
+            const quantityHiddenInput = document.getElementById('quantityInput');
+
+            form.addEventListener('submit', function () {
+                quantityHiddenInput.value = quantityInput.value;
+
+                // Xoá input topping cũ (nếu có)
+                const oldToppings = form.querySelectorAll('input[name="topping"]');
+                oldToppings.forEach(e => e.remove());
+
+                // Thêm topping mới theo số lượng
+                document.querySelectorAll('.topping-qty').forEach(input => {
+                    const qty = parseInt(input.value);
+                    if (qty > 0) {
+                        for (let i = 0; i < qty; i++) {
+                            const toppingId = input.dataset.id;
+                            const hidden = document.createElement('input');
+                            hidden.type = 'hidden';
+                            hidden.name = 'topping';
+                            hidden.value = toppingId;
+                            form.appendChild(hidden);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+@section Styles {
+    <style>
+        .menu-container {
+            display: flex;
+        }
+
+        .category-sidebar {
+            width: 17.5rem;
+            margin-right: 3rem;
+            background-color: #f9f9f9;
+            padding: 0.9375rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+            max-height: auto;
+            overflow-y: auto;
+        }
+
+        .category-sidebar ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 9rem;
+        }
+
+        .category-sidebar li {
+            margin-bottom: 0.625rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1.25rem;
+        }
+
+        .category-sidebar a {
+            color: #9a3324;
+            font-weight: 800;
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease-in-out;
+            margin-top: 1rem;
+        }
+
+        .category-sidebar a:hover {
+            color: #f8b02d;
+        }
+
+        .detail-layout {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-top: 7rem;
+            margin-left: 2.5rem;
+            margin-right: 2.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .detail-left {
+            flex: 1;
+        }
+
+        .image-frame {
+            background: white;
+            padding: 1rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+            max-width: 550px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+
+        .detail-main-img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .thumbnail-wrapper {
+            margin-top: 0.5rem;
+        }
+
+        .detail-thumb-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .detail-right {
+            flex: 1;
+        }
+
+        .detail-title {
+            color: #9a3324;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1.5rem;
+        }
+
+        .gia-ban {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .gia-label {
+            color: #333;
+            font-weight: 800;
+            font-size: 1.25rem;
+        }
+
+        .gia-value {
+            color: #f8b02d;
+            margin-left: 0.15rem;
+            font-size: 2.25rem;
+            font-weight: 1000;
+            margin-top: 0.5rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qty-btn {
+            background-color: #9a3324;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        #quantity {
+            width: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 1px solid #000;
+            border-radius: 0.5rem;
+            padding: 0.4rem;
+            background-color: white;
+        }
+
+        .total-price-box {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #9a3324;
+            margin-top: 0.5rem;
+        }
+
+        .total-label {
+            margin-right: 0.5rem;
+            font-size: 1.7rem;
+        }
+
+        .mo-ta {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .add-cart-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .cart-icon-box {
+            font-size: 1.8rem;
+            color: #9a3324;
+            background-color: #fff3e0;
+            padding: 0.7rem 1rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-add-cart {
+            background-color: #9a3324;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            height: 3.5rem;
+            width: 27rem;
+            font-size: 1rem;
+        }
+
+        .btn-add-cart:hover {
+            background-color: #f8b02d;
+            color: #9a3324;
+        }
+
+
+        .topping-section {
+            margin-top: 2rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            width: 100%;
+            background-color: #f8b02d;
+            color: #000;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 1rem;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .arrow-icon {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 1rem;
+        }
+
+        .accordion-item.active .accordion-content {
+            display: block;
+        }
+
+        .topping-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .topping-card {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .topping-qty-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+            margin-right: 1rem;
+        }
+
+        .topping-qty {
+            width: 40px;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 0.3rem;
+            padding: 0.6rem 0.9rem;
+            font-size: 1rem;
+        }
+
+        .topping-plus,
+        .topping-minus {
+            background-color: #9a3324;
+            color: #fff;
+            border: none;
+            padding: 0.6rem 0.9rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .topping-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .topping-name {
+            font-weight: bold;
+        }
+
+        .topping-price {
+            color: #f8b02d;
+            font-size: 0.95rem;
+            margin-top: 0.25rem;
+        }
+
+        .cart-count {
+            background-color: #9a3324;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 0.3rem 0.6rem;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+
+        .cart-icon-wrapper i {
+            font-size: 2rem;
+            color: #f8b02d;
+            background-color: #fff3e0;
+            padding: 0.75rem 0.75rem;
+            border-radius: 0.75rem;
+            margin-right: 0.25rem;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+}

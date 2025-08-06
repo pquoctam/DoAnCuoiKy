@@ -1,0 +1,310 @@
+﻿@{
+    ViewData["Title"] = "Trang Chu";
+}
+
+<section class="hero">
+    <img src="/images/section.png">
+</section>
+
+<div class="floating-icons">
+    <!-- Zalo Chat -->
+    <a href="https://zalo.me/0848123456" target="_blank" class="zalo-icon" title="Zalo Chat">
+        <img src="/images/Zalo.png" alt="Zalo" />
+    </a>
+    <!-- Facebook Messenger -->
+    <a href="https://m.me/texaschicken.vn" target="_blank" class="fb-icon" title="Messenger">
+        <i class="fab fa-facebook-messenger"></i>
+    </a>
+    <!-- Chatbot bật/tắt -->
+    <a href="javascript:void(0)" onclick="toggleChatBox()"><i class="fas fa-comment-dots"></i></a>
+    <a href="#"><i class="fas fa-arrow-up"></i></a>
+</div>
+
+<section class="combo-slider-section">
+    <h2>HÔM NAY ĂN GÌ?</h2>
+    <div class="swiper comboSwiper">
+        <div class="swiper-wrapper">
+            @await Component.InvokeAsync("Combo")
+        </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</section>
+
+<section class="find-store-section">
+    <div class="overlay">
+        <div class="find-store-box">
+            <h2>TÌM NHÀ HÀNG<br>GẦN BẠN</h2>
+            <select>
+                <option>Tỉnh / Thành phố</option>
+                <option>TP. Hồ Chí Minh</option>
+                <option>Hà Nội</option>
+                <option>Đà Nẵng</option>
+            </select>
+            <select>
+                <option>Quận / Huyện</option>
+                <option>Quận 1</option>
+                <option>Quận 7</option>
+                <option>Gò Vấp</option>
+            </select>
+            <button class="btn-search">Tìm kiếm</button>
+        </div>
+    </div>
+</section>
+
+<div class="intro-section">
+    <div class="intro-left">
+        <iframe class="fried-video" width="560" height="315"
+            src="https://www.youtube.com/embed/h1AkwbJ-7H0?autoplay=1&mute=1&loop=1&playlist=h1AkwbJ-7H0"
+            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="intro-right">
+        <img src="/images/doinetve.png" class="intro-title" />
+        <img src="/images/texaschicken.png" class="intro-title" />
+        <p>
+            Đến thị trường Việt Nam vào cuối năm 2012, đến nay Texas Chicken đã nhanh chóng phát triển với 30 nhà hàng
+            tại Tp.HCM, Bình Dương, Nha Trang, Hà Nội, Hải Phòng và Biên Hòa, thu hút đông đảo thực khách đến trải nghiệm
+            các sản phẩm “Gà rán đậm vị Texas”.
+        </p>
+        <button class="btn-find-out">TÌM HIỂU THÊM</button>
+    </div>
+</div>
+
+<section class="news-section">
+    <h2>TIN TỨC & SỰ KIỆN</h2>
+    <div class="swiper newsSwiper">
+        <div class="swiper-wrapper">
+            @await Html.PartialAsync("Components/_NewsCard", new {
+                ImageUrl = "/images/banner1.jpg",
+                Title = "TEXAS CHICKEN PHẠM VĂN THUẬN - BIÊN HÒA",
+                Description = "Khai trương Texas Chicken Phạm Văn Thuận - Biên Hòa 10h00 sáng 26/08/2023 tại 1136 – 1138 Phạm Văn Thuận, Tp. Biên Hòa."
+            })
+            @await Html.PartialAsync("Components/_NewsCard", new {
+                ImageUrl = "/images/banner3.jpg",
+                Title = "CHƯƠNG TRÌNH CRUNCHY NIGHT",
+                Description = "Crunchy Night - Đại nhạc hội mừng kỷ niệm 10 năm Texas Chicken tại Việt Nam và ra mắt cộng đồng TEXFAN."
+            })
+            @await Html.PartialAsync("Components/_NewsCard", new {
+                ImageUrl = "/images/banner4.jpg",
+                Title = "CHƯƠNG TRÌNH CRUNCHY NIGHT",
+                Description = "Crunchy Night - Đại nhạc hội mừng kỷ niệm 10 năm Texas Chicken tại Việt Nam và ra mắt cộng đồng TEXFAN."
+            })
+            @await Html.PartialAsync("Components/_NewsCard", new {
+                ImageUrl = "/images/banner5.jpg",
+                Title = "CHƯƠNG TRÌNH CRUNCHY NIGHT",
+                Description = "Crunchy Night - Đại nhạc hội mừng kỷ niệm 10 năm Texas Chicken tại Việt Nam và ra mắt cộng đồng TEXFAN."
+            })
+        </div>
+    </div>
+    <div class="swiper-button-prev news-prev"></div>
+    <div class="swiper-button-next news-next"></div>
+    <div class="swiper-pagination news-pagination"></div>
+</section>
+
+<section class="highlight-section">
+    <div class="highlight-box">
+        <div class="highlight-icon" style="background-image: url('/images/nen.png');">
+            <img src="/images/ga.png"/>
+        </div>
+        <h3>GÀ GIÒN CHUẨN<br>TƯƠI 100%</h3>
+        <p>Thưởng thức gà rán giòn tan,<br>sử dụng gà tươi 100% từ nông trại</p>
+    </div>
+    <div class="highlight-box">
+        <div class="highlight-icon" style="background-image: url('/images/nen.png');">
+            <img src="/images/nuocngot.png"/>
+        </div>
+        <h3>NƯỚC NGỌT UỐNG<br>KHÔNG GIỚI HẠN</h3>
+        <p>Uống nước ngọt thoải mái với<br>concept refill miễn phí</p>
+    </div>
+    <div class="highlight-box">
+        <div class="highlight-icon" style="background-image: url('/images/nen.png');">
+            <img src="/images/dichvu.png"/>
+        </div>
+        <h3>DỊCH VỤ CHUYÊN NGHIỆP &<br>KHÔNG GIAN HIỆN ĐẠI</h3>
+        <p>Trải nghiệm phong cách phục vụ chuyên nghiệp<br>& không gian cực kool</p>
+    </div>
+</section>
+
+<!-- 🔹 Chatbot tự động -->
+<div class="chat-bot" id="chatBot">
+    <div class="chat-header">
+        <span>Chat với TexasBot</span>
+        <button onclick="toggleChatBox()">×</button>
+    </div>
+    <div class="chat-content" id="chatContent"></div>
+    <form class="chat-form" onsubmit="handleChat(event)">
+        <input type="text" id="chatInput" placeholder="Nhập câu hỏi..." required />
+        <button type="submit">Gửi</button>
+    </form>
+</div>
+
+@section Styles {
+    <style>
+        .chat-bot {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 300px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 999;
+            overflow: hidden;
+        }
+        .chat-header {
+            background: #9a3324;
+            color: #fff;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        .chat-header button {
+            background: transparent;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .chat-content {
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #fdfdfd;
+        }
+        .chat-msg {
+            padding: 10px 14px;
+            border-radius: 12px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+        .user-msg {
+            align-self: flex-end;
+            background-color: #f8b02d;
+            color: #000;
+        }
+        .bot-msg {
+            align-self: flex-start;
+            background-color: #eee;
+            color: #333;
+        }
+        .chat-form {
+            display: flex;
+            border-top: 1px solid #ccc;
+        }
+        .chat-form input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            font-size: 15px;
+        }
+        .chat-form button {
+            padding: 10px;
+            background: #9a3324;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+}
+
+.floating-icons a {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #9a3324;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.floating-icons a:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.floating-icons img {
+    width: 28px;
+    height: 28px;
+}
+
+.floating-icons i {
+    font-size: 22px;
+    color: #fff;
+}
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function toggleChatBox() {
+            const bot = document.getElementById("chatBot");
+            bot.style.display = (bot.style.display === "flex") ? "none" : "flex";
+        }
+
+        function handleChat(e) {
+            e.preventDefault();
+            const input = document.getElementById("chatInput");
+            const content = document.getElementById("chatContent");
+            const msg = input.value.trim();
+            if (msg === "") return;
+
+            content.innerHTML += `<div class="chat-msg user-msg">${msg}</div>`;
+            input.value = "";
+
+            const reply = getAutoReply(msg);
+            setTimeout(() => {
+                content.innerHTML += `<div class="chat-msg bot-msg">${reply}</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 500);
+        }
+
+        function getAutoReply(text) {
+            const msg = text.toLowerCase();
+
+            if (msg.includes("giờ") && msg.includes("mở")) return "Chúng tôi mở cửa từ 9h00 đến 22h00 mỗi ngày.";
+            if (msg.includes("giao hàng")) return "Chúng tôi có hỗ trợ giao hàng qua ShopeeFood, GrabFood, Baemin.";
+            if (msg.includes("địa chỉ") || msg.includes("chi nhánh")) return "Bạn có thể tìm chi nhánh gần nhất ở mục 'Nhà hàng'.";
+            if (msg.includes("menu") || msg.includes("thực đơn")) return "Bạn có thể xem thực đơn tại mục 'Menu' trên thanh điều hướng.";
+            if (msg.includes("liên hệ")) return "Bạn có thể gọi số (028) 393 11 039 hoặc email info.texaschicken@fb.mesa.vn";
+
+            return "Xin lỗi, mình chưa hiểu ý bạn. Bạn có thể hỏi về giờ mở cửa, menu, chi nhánh, giao hàng, hoặc liên hệ nhé!";
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (TempData["DatHangThanhCong"] != null)
+        {
+            <text>
+                Swal.fire({
+                    title: '🎉 Thành công!',
+                    text: '@TempData["DatHangThanhCong"]',
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false
+                }).then(() => {
+                    window.location.href = "/";
+                });
+            </text>
+        }
+    </script>
+}

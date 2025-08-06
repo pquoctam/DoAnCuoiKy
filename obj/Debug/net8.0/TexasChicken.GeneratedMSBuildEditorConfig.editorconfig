@@ -1,0 +1,211 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TexasChicken
+build_property.RootNamespace = TexasChicken
+build_property.ProjectDir = /Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/DonHang/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRG9uSGFuZy9DaGlUaWV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/DonHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vRG9uSGFuZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/KhachHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS2hhY2hIYW5nL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/KhachHang/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS2hhY2hIYW5nL1N1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/KhuyenMai/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS2h1eWVuTWFpL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/KhuyenMai/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS2h1eWVuTWFpL1N1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/KhuyenMai/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vS2h1eWVuTWFpL1RoZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/LoaiMon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vTG9haU1vbi9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/LoaiMon/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vTG9haU1vbi9TdWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/LoaiMon/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vTG9haU1vbi9UaGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/ThongKe/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGhvbmdLZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/ThucDon/GanTopping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGh1Y0Rvbi9HYW5Ub3BwaW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/ThucDon/QuanLy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGh1Y0Rvbi9RdWFuTHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/ThucDon/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGh1Y0Rvbi9TdWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/ThucDon/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGh1Y0Rvbi9UaGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/TinTuc/QuanLy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGluVHVjL1F1YW5MeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/TinTuc/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGluVHVjL1N1YS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/TinTuc/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVGluVHVjL1RoZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/Topping/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVG9wcGluZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/Topping/Sua.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVG9wcGluZy9TdWEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Admin/Topping/Them.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWRtaW4vVG9wcGluZy9UaGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/GioHang/DatHang.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2lvSGFuZy9EYXRIYW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/GioHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2lvSGFuZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/GioHang/ThanhToan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvR2lvSGFuZy9UaGFuaFRvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/NhaHang/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTmhhSGFuZy9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/Components/Combo/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvQ29tYm8vRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/Components/_ComboCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0NvbWJvQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/Components/_NewsCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX05ld3NDYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/DanhMucMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0RhbmhNdWNNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TaiKhoan/DangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpS2hvYW4vRGFuZ0t5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TaiKhoan/DatLaiMatKhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpS2hvYW4vRGF0TGFpTWF0S2hhdS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TaiKhoan/QuenMatKhau.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpS2hvYW4vUXVlbk1hdEtoYXUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TaiKhoan/XacThucOTP.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGFpS2hvYW4vWGFjVGh1Y09UUC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/ThucDon/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGh1Y0Rvbi9DaGlUaWV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/ThucDon/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGh1Y0Rvbi9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TinTuc/ChiTiet.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGluVHVjL0NoaVRpZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/TinTuc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvVGluVHVjL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/dangphuc/Documents/DoAnCuoiKy/TexasChicken/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-plhkyf0web

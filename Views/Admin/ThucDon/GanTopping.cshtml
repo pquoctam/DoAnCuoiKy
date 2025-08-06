@@ -1,0 +1,78 @@
+@model GanToppingViewModel
+
+@{
+    ViewData["Title"] = "Gán Topping";
+    Layout = "_LayoutAdmin";
+}
+
+<h2>Gán Topping cho món: @Model.TenMon</h2>
+
+<form asp-action="GanTopping" method="post">
+    <input type="hidden" asp-for="MaMon" />
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Chọn</th>
+                <th>Tên Topping</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.DanhSachTopping.Count; i++)
+            {
+                <tr>
+                    <td>
+                        <input asp-for="DanhSachTopping[i].DuocChon" type="checkbox" />
+                        <input type="hidden" asp-for="DanhSachTopping[i].MaTopping" />
+                    </td>
+                    <td>@Model.DanhSachTopping[i].TenTopping</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="btn-container">
+        <button type="submit" class="btn-save">Lưu</button>
+        <a href="/ThucDon/QuanLy" class="btn-back">Quay lại</a>
+    </div>
+</form>
+
+@section Styles {
+    <style>
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .btn-save {
+            background-color: #28a745;
+            border: none;
+            color: white;
+            padding: 10px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-save:hover {
+            background-color: #218838;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+            padding: 10px 30px;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+    </style>
+}
+

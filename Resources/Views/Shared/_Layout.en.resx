@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="Home" xml:space="preserve"><value>HOME</value></data>
+  <data name="Menu" xml:space="preserve"><value>MENU</value></data>
+  <data name="News" xml:space="preserve"><value>NEWS</value></data>
+  <data name="Restaurant" xml:space="preserve"><value>RESTAURANTS</value></data>
+  <data name="About" xml:space="preserve"><value>ABOUT TEXAS CHICKEN</value></data>
+  <data name="Login" xml:space="preserve"><value>LOGIN</value></data>
+  <data name="Logout" xml:space="preserve"><value>LOGOUT</value></data>
+  <data name="SearchPlaceholder" xml:space="preserve"><value>Search for food...</value></data>
+  <data name="Account" xml:space="preserve"><value>Your account</value></data>
+  <data name="ForgotPassword" xml:space="preserve"><value>Forgot password?</value></data>
+  <data name="EnterEmail" xml:space="preserve"><value>Email / Phone number</value></data>
+  <data name="EnterPassword" xml:space="preserve"><value>Password</value></data>
+  <data name="Subscribe" xml:space="preserve"><value>Sign up to receive offers</value></data>
+  <data name="YourEmail" xml:space="preserve"><value>Your email address</value></data>
+  <data name="Send" xml:space="preserve"><value>Send</value></data>
+  <data name="Contact" xml:space="preserve"><value>Contact</value></data>
+  <data name="ViewMap" xml:space="preserve"><value>View map</value></data>
+  <data name="Policy" xml:space="preserve"><value>Terms &amp; Policies</value></data>
+  <data name="Privacy" xml:space="preserve"><value>Privacy Policy</value></data>
+  <data name="FooterAddress" xml:space="preserve"><value>202 Ly Chinh Thang, District 3, HCMC</value></data>
+  <data name="FooterPhone" xml:space="preserve"><value>(028) 393 11 039</value></data>
+  <data name="FooterEmail" xml:space="preserve"><value>info.texaschicken@fb.mesa.vn</value></data>
+  <data name="FooterWebsite" xml:space="preserve"><value>www.texaschickenvn.com</value></data>
+  <data name="Info" xml:space="preserve"><value>Info</value></data>
+  <data name="Connect" xml:space="preserve"><value>Connect</value></data>
+  <data name="CompanyName" xml:space="preserve"><value>TEXAS CHICKEN VIETNAM</value></data>
+  <data name="InfoTitle" xml:space="preserve"><value>Information</value></data>
+  <data name="ConnectWithUs" xml:space="preserve"><value>Connect with Texas Chicken</value></data>
+  <data name="SubscribeTitle" xml:space="preserve"><value>Sign up to receive offers</value></data>
+  <data name="RegisterEmailPlaceholder" xml:space="preserve"><value>Your email address</value></data>
+  <data name="SocialFacebook" xml:space="preserve"><value>Facebook</value></data>
+  <data name="SocialYouTube" xml:space="preserve"><value>YouTube</value></data>
+  <data name="SocialInstagram" xml:space="preserve"><value>Instagram</value></data>
+  <data name="CopyRight" xml:space="preserve">
+  <value>&#169; 2022 Texas Chicken Vietnam &#8211; Business License No: xxxx &#8211; Department of Planning and Investment, ABC Province</value>
+</data>
+
+  <data name="ErrorLoginMessage" xml:space="preserve"><value>Invalid login. Please try again.</value></data>
+  <data name="NoAccount" xml:space="preserve"><value>Don&apos;t have an account?</value></data>
+  <data name="LoginButton" xml:space="preserve"><value>LOG IN</value></data>
+  <data name="RegisterLink" xml:space="preserve"><value>Register now</value></data>
+  <data name="CartTitle" xml:space="preserve"><value>Shopping Cart</value></data>
+  <data name="SearchButton" xml:space="preserve"><value>Search</value></data>
+  <data name="SeeDetails" xml:space="preserve"><value>View details</value></data>
+</root>

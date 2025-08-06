@@ -1,0 +1,217 @@
+@{
+    ViewData["Title"] = "Tin Tuc";
+}
+
+<!-- Hero banner -->
+<section class="introduce-section">
+    <div class="intro-banner">
+        <div class="container">
+            <h1>TIN TỨC</h1>
+        </div>
+    </div>
+</section>
+
+<!-- News Section -->
+<section class="news-wrapper">
+    <div class="container">
+        <div class="news-layout">
+            <!-- Tin nổi bật -->
+            <div class="main-news">
+                <div class="main-news-img">
+                    <img src="@Url.Content("~/images/TinTuc/" + Model[0].HinhAnh)" alt="@Model[0].TieuDe" />
+                </div>
+                <div class="main-news-content">
+                    <h2>@Model[0].TieuDe</h2>
+                    <p>@(Model[0].NoiDung.Length > 200 ? Model[0].NoiDung.Substring(0, 200) + "..." : Model[0].NoiDung)
+                    </p>
+                    <a href="@Url.Action("ChiTiet", "TinTuc", new { MaTin = Model[0].MaTin })" class="btn-detail">XEM
+                        CHI TIẾT</a>
+                </div>
+            </div>
+
+            <!-- Danh sách tin phụ -->
+            <div class="side-news">
+                @for (int i = 1; i < Math.Min(Model.Count, 5); i++)
+                {
+                    var item = Model[i];
+                    <div class="side-news-item">
+                        <div class="side-news-img">
+                            <img src="@Url.Content("~/images/TinTuc/" + item.HinhAnh)" alt="@item.TieuDe" />
+                        </div>
+                        <div class="side-news-content">
+                            <h4>@item.TieuDe</h4>
+                            <p>@(item.NoiDung.Length > 100 ? item.NoiDung.Substring(0, 100) + "..." : item.NoiDung)</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Phân trang -->
+        @if (ViewBag.TotalPages > 1)
+        {
+            <div class="pagination">
+                @if (ViewBag.CurrentPage > 1)
+                {
+                    <a href="@Url.Action("Index", "TinTuc", new { page = ViewBag.CurrentPage - 1 })">&lt;</a>
+                }
+
+                @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                {
+                    if (i == ViewBag.CurrentPage)
+                    {
+                        <a class="active">@i</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "TinTuc", new { page = i })">@i</a>
+                    }
+                }
+
+                @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+                {
+                    <a href="@Url.Action("Index", "TinTuc", new { page = ViewBag.CurrentPage + 1 })">&gt;</a>
+                }
+            </div>
+        }
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .introduce-section {
+            font-family: sans-serif;
+            color: #333333;
+        }
+
+        .intro-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://texaschickenvn.com/vnt_upload/weblink/banner_1.jpg') center/cover no-repeat;
+            height: 31.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-banner h1 {
+            color: #f8b02d;
+            font-size: 3.125rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .news-wrapper {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff;
+            padding: 40px 20px;
+        }
+
+        .news-layout {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            margin-left: 6rem;
+            margin-right: 6rem;
+        }
+
+        .main-news {
+            flex: 1 1 40%;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .main-news-img img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .main-news-content {
+            padding: 20px;
+        }
+
+        .main-news-content h2 {
+            font-size: 21px;
+            color: #111;
+            margin-bottom: 10px;
+            line-height: 1.75rem;
+        }
+
+        .main-news-content p {
+            color: #444;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn-detail {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #f7a600;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .side-news {
+            flex: 1 1 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-news-item {
+            display: flex;
+            gap: 15px;
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .side-news-img img {
+            width: 170px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .side-news-content h4 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 5px;
+            line-height: 1.5rem;
+        }
+
+        .side-news-content p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.25rem;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .pagination a {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 10px 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50%;
+        }
+
+        .pagination a.active {
+            background-color: #a82c1c;
+            color: #fff;
+            border-color: #a82c1c;
+        }
+    </style>
+}

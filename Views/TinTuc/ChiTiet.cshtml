@@ -1,0 +1,187 @@
+@model TexasChicken.Models.TinTuc
+
+@{
+    ViewData["Title"] = Model.TieuDe;
+    var shareUrl = $"{Context.Request.Scheme}://{Context.Request.Host}/TinTuc/ChiTiet?MaTin={Model.MaTin}";
+}
+
+<section class="news-detail">
+    <div class="container">
+        <!-- Tiêu đề chính + nút tương tác nằm ngay dưới -->
+        <div class="header-group">
+            <h1 class="news-title">@Model.TieuDe</h1>
+            <div class="social-buttons">
+                <button class="btn-like">👍 Thích 3,2 triệu</button>
+                <div class="dropdown-share">
+                    <button class="btn-share" onclick="toggleShare()">Chia sẻ </button>
+                    <div id="share-options" class="share-options">
+                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=@shareUrl">📘 Facebook</a>
+                        <a href="https://zalo.me/share?url=@shareUrl" target="_blank">💬 Zalo</a>
+                        <button onclick="copyLink()">🔗 Sao chép liên kết</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nội dung tin tức -->
+        <div class="news-content">
+            <p class="lead">
+                Texas Chicken Việt Nam tiếp tục mở rộng quy mô hoạt động bằng việc ra mắt thêm nhiều chi nhánh mới, đồng
+                thời nâng cấp quy trình vận hành theo tiêu chuẩn quốc tế. Đây là bước tiến chiến lược nhằm nâng cao trải
+                nghiệm khách hàng và khẳng định vị thế của thương hiệu trong ngành thức ăn nhanh tại Việt Nam.
+            </p>
+
+            <p>
+                Tính đến quý II năm 2025, hệ thống Texas Chicken đã có mặt tại hơn 20 tỉnh thành trên cả nước, trong đó
+                có các thành phố lớn như TP.HCM, Hà Nội, Đà Nẵng, Cần Thơ... Mỗi nhà hàng đều được thiết kế hiện đại,
+                không gian mở và thân thiện với khách hàng, đặc biệt chú trọng đến khu vực dành cho gia đình và trẻ nhỏ.
+            </p>
+
+            <p>
+                Song song với việc mở rộng chuỗi cửa hàng, Texas Chicken cũng đẩy mạnh các hoạt động vì cộng đồng như
+                chương trình hỗ trợ trẻ em vùng cao, phát triển nguyên liệu sạch trong nước và hợp tác với các nhà cung
+                cấp đạt chuẩn VSATTP. Những nỗ lực này không chỉ giúp xây dựng thương hiệu bền vững mà còn tạo ra nhiều
+                giá trị tích cực cho xã hội.
+            </p>
+
+            <!-- Hình ảnh -->
+            <div class="news-image">
+                <img src="@Url.Content("~/images/TinTuc/" + Model.HinhAnh)" alt="@Model.TieuDe" />
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Styles {
+    <style>
+        .news-detail {
+            font-family: 'Segoe UI', sans-serif;
+            background: #fff;
+            padding: 50px 20px;
+            color: #333;
+            margin-top: 5rem;
+        }
+
+        .header-group {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .news-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .social-buttons {
+            display: inline-block;
+        }
+
+        .btn-like,
+        .btn-share {
+            background-color: #e7f3ff;
+            border: 1px solid #ccc;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-like:hover,
+        .btn-share:hover {
+            background-color: #d0e7ff;
+        }
+
+        .dropdown-share {
+            position: relative;
+            display: inline-block;
+        }
+
+        .share-options {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            padding: 10px;
+            border-radius: 6px;
+            top: 100%;
+            right: 0;
+            z-index: 10;
+            min-width: 180px;
+        }
+
+        .share-options.show {
+            display: block;
+        }
+
+        .share-options a,
+        .share-options button {
+            display: block;
+            padding: 8px 12px;
+            border: none;
+            background: none;
+            color: #333;
+            text-decoration: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .share-options a:hover,
+        .share-options button:hover {
+            background-color: #f5f5f5;
+        }
+
+        .news-content {
+            max-width: 900px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .news-content .lead {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .news-image {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .news-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function toggleShare() {
+            document.getElementById("share-options").classList.toggle("show");
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(function () {
+                alert("Đã sao chép liên kết!");
+            }, function () {
+                alert("Không thể sao chép liên kết!");
+            });
+        }
+
+        window.onclick = function (e) {
+            if (!e.target.matches('.btn-share')) {
+                const dropdown = document.getElementById("share-options");
+                if (dropdown && dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+}

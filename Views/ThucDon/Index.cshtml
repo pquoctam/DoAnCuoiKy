@@ -1,0 +1,69 @@
+@model IEnumerable<TexasChicken.Models.ThucDon>
+
+@{
+    ViewData["Title"] = "Thực đơn";
+    Layout = "_Layout";
+    var danhMuc = ViewBag.DanhMuc as List<TexasChicken.Models.LoaiMon>;
+    var daDangNhap = Context.Session.GetInt32("MaKH") != null || Context.Session.GetInt32("MaND") != null;
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/thucdon.css" asp-append-version="true" />
+}
+
+<div class="menu-container">
+    <aside class="category-sidebar">
+        <ul>
+            @if (danhMuc != null)
+            {
+                foreach (var loai in danhMuc)
+                {
+                    <li>
+                        <a href="/ThucDon/Index?maLoai=@loai.MaLoai">@loai.TenLoai.ToUpper()</a>
+                    </li>
+                }
+            }
+        </ul>
+    </aside>
+
+    <div class="menu-content">
+        <h2 class="menu-title">@ViewBag.TieuDe</h2>
+
+        <div class="menu-grid">
+            @foreach (var item in Model)
+            {
+                <div class="menu-card">
+                    <img src="~/images/ThucDon/@item.HinhAnh" class="menu-image" />
+                    <h5 class="menu-name">@item.TenMon</h5>
+                    <p class="menu-price">
+                        <span class="label">Giá bán:</span>
+                        <span class="gia">@item.GiaBan.ToString("N0")đ</span>
+                        @if (item.GiaGoc > item.GiaBan)
+                        {
+                            <span class="menu-original">@item.GiaGoc.ToString("N0")đ</span>
+                        }
+                    </p>
+                    @if (daDangNhap)
+                        {
+                            <a href="/ThucDon/ChiTiet/@item.MaMon" class="btn-chi-tiet">XEM CHI TIẾT</a>
+                        }
+                    else
+                        {
+                            <a href="javascript:void(0);" class="btn-chi-tiet" onclick="toggleLoginModal()">XEM CHI TIẾT</a>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const showModal = "@TempData["ShowLoginModal"]";
+            if (showModal === "true") {
+                toggleLoginModal();
+            }
+        });
+    </script>
+}

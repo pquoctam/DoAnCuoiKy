@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+
+  <data name="PageTitle" xml:space="preserve"><value>ABOUT TEXAS CHICKEN</value></data>
+  <data name="IntroHeading" xml:space="preserve"><value>INTRODUCTION</value></data>
+  <data name="BrandTitle" xml:space="preserve"><value>TEXAS CHICKEN</value></data>
+
+  <data name="BrandParagraph1" xml:space="preserve">
+    <value>Founded in San Antonio, Texas (USA) in 1952, Texas Chicken is one of the world’s leading fast food service brands. Today, Texas Chicken is a top international fried chicken brand, serving over 3 million guests weekly at more than 1,700 restaurants in the USA and 26 other countries around the world.</value>
+  </data>
+
+  <data name="BrandParagraph2" xml:space="preserve">
+    <value>Texas Chicken is committed to using only the freshest, highest-quality chicken – never frozen. All dishes are freshly prepared every day and served hot and crispy to satisfy every guest.</value>
+  </data>
+
+  <data name="BrandParagraph3" xml:space="preserve">
+    <value>Entering the Vietnamese market in late 2012, Texas Chicken has rapidly expanded with 30 restaurants in Ho Chi Minh City, Binh Duong, Nha Trang, Hanoi, Hai Phong, and Bien Hoa, attracting many customers to experience its flavorful and bold “Texas-style” fried chicken.</value>
+  </data>
+
+  <data name="TimelineIntro" xml:space="preserve"><value>HOW IT ALL STARTED</value></data>
+
+  <!-- Timeline 1950s -->
+  <data name="Timeline1950_1" xml:space="preserve"><value>His name was George W. Church, Sr., and he is the reason you crave chicken so much...</value></data>
+  <data name="Timeline1950_2" xml:space="preserve"><value>George W. Church, Sr. opened Church's Fried Chicken-To-Go in downtown San Antonio...</value></data>
+  <data name="Timeline1950_3" xml:space="preserve"><value>Churchie™ became the adorable mascot of the brand.</value></data>
+
+  <!-- Timeline 1960s -->
+  <data name="Timeline1960_1" xml:space="preserve"><value>Church's® had over 100 restaurants across seven states.</value></data>
+  <data name="Timeline1960_2" xml:space="preserve"><value>George W. (Bill) Church, Jr. took over the company after his father's passing.</value></data>
+  <data name="Timeline1960_3" xml:space="preserve"><value>Church's® became a public company. The National Headquarters complex opened in San Antonio, Texas.</value></data>
+
+  <!-- Timeline 1970s -->
+  <data name="Timeline1970_1" xml:space="preserve"><value>Our restaurants got a brand new look.</value></data>
+  <data name="Timeline1970_2" xml:space="preserve"><value>The first Church's® franchise outside the U.S. opened in Vancouver, Canada.</value></data>
+  <data name="Timeline1970_3" xml:space="preserve"><value>Church's® was listed on the NYSE. The Wall Street Journal called Church's® "the best-managed growth company nationwide."</value></data>
+  <data name="Timeline1970_4" xml:space="preserve"><value>A new ad campaign clearly distinguished Church's® from competitors.</value></data>
+
+  <!-- Timeline 1980s -->
+  <data name="Timeline1980_1" xml:space="preserve"><value>A new advertising campaign was launched to tackle competition. The "Kick the Bucket" slogan went head-to-head with another chicken chain.</value></data>
+  <data name="Timeline1980_2" xml:space="preserve"><value>Church's® underwent another upgrade with new brand colors: green, white, and orange.</value></data>
+  <data name="Timeline1980_3" xml:space="preserve"><value>The brand-new Big Chicken Sandwich set a company record – nearly 1,400 sold in one day!</value></data>
+
+  <!-- Timeline 1990s -->
+  <data name="Timeline1990_1" xml:space="preserve"><value>We lived and believed in our true heritage – the Texas Way.</value></data>
+  <data name="Timeline1990_2" xml:space="preserve"><value>AFC, the new parent company of Church's Chicken®, relocated Church's® headquarters to Atlanta, Georgia.</value></data>
+  <data name="Timeline1990_3" xml:space="preserve"><value>After 12 years with AFC, Church's® was acquired by a private equity firm and no longer affiliated with any other brand.</value></data>
+
+  <!-- Timeline 2000s -->
+  <data name="Timeline2000_1" xml:space="preserve"><value>Global sales surpassed 1,000,000,000. That’s a lot of chicken!</value></data>
+  <data name="Timeline2000_2" xml:space="preserve"><value>Over 60 years, Church's® has seen many rebrands, new products, and campaigns. But one thing hasn’t changed: we still serve the world’s best fried chicken!</value></data>
+
+  <!-- Timeline 2010s -->
+  <data name="Timeline2010_1" xml:space="preserve"><value>Our tradition is Texas. And it’s yours to savor. Every day, every bite.</value></data>
+  <data name="Timeline2010_2" xml:space="preserve"><value>Serving customers at more than 1,700 locations in 23 countries worldwide.</value></data>
+  <data name="Timeline2010_3" xml:space="preserve"><value>Opened Texas Chicken restaurants in Malaysia.</value></data>
+
+  <!-- Timeline 2020s -->
+  <data name="Timeline2020_1" xml:space="preserve"><value>With legendary meals, handcrafted flavors, and unforgettable experiences for our guests.</value></data>
+  <data name="Timeline2020_2" xml:space="preserve"><value>Our legacy, spirit, and roots are truly Texan.</value></data>
+  <data name="Timeline2020_3" xml:space="preserve"><value>Texas Chicken officially launched in Vietnam.</value></data>
+</root>

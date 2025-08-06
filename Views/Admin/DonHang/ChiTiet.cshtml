@@ -1,0 +1,128 @@
+@model TexasChicken.Models.DonHang
+
+@{
+    ViewData["Title"] = "Chi Tiết Đơn Hàng";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="page-header mb-3">
+    <h2>Chi Tiết Đơn Hàng</h2>
+    <a href="/DonHang/Index" class="btn btn-secondary">← Trở lại</a>
+</div>
+
+<!-- Thông tin đơn hàng -->
+<div class="mb-4">
+    <h5 class="mb-2">Thông tin đơn hàng</h5>
+    <table class="table table-sm table-borderless">
+        <tr>
+            <th style="width:150px">Mã đơn hàng:</th>
+            <td>@Model.MaDonHang</td>
+        </tr>
+        <tr>
+            <th>Khách hàng:</th>
+            <td>@Model.HoTen - @Model.SoDienThoai</td>
+        </tr>
+        <tr>
+            <th>Ngày đặt:</th>
+            <td>@Model.NgayDat.ToString("dd/MM/yyyy HH:mm")</td>
+        </tr>
+        <tr>
+            <th>Trạng thái:</th>
+            <td>
+                <span class="badge @(Model.TrangThai == "Đang xử lý" ? "bg-warning text-dark" :
+                                                           Model.TrangThai == "Đã giao" ? "bg-success" :
+                                                           Model.TrangThai == "Đã huỷ" ? "bg-danger" : "bg-secondary")">
+                    @Model.TrangThai
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <th>Giao hàng:</th>
+            <td>@Model.PhuongThucGiaoHang - @Model.DiaChiGiaoHang</td>
+        </tr>
+        <tr>
+            <th>Tổng tiền:</th>
+            <td><strong>@Model.TongTien.ToString("N0") đ</strong></td>
+        </tr>
+        @if (!string.IsNullOrEmpty(Model.GhiChu))
+        {
+            <tr>
+                <th>Ghi chú:</th>
+                <td>@Model.GhiChu</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<!-- Danh sách món -->
+<div>
+    <h5 class="mb-3">Danh sách món ăn</h5>
+    <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-light">
+            <tr>
+                <th>Mã</th>
+                <th>Tên món</th>
+                <th>Số lượng</th>
+                <th>Đơn giá</th>
+                <th>Topping</th>
+                <th>Tổng tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int stt = 1;
+            }
+            @foreach (var ct in Model.ChiTietDonHang)
+            {
+                var giaTopping = ct.ChiTietDonHangTopping?.Sum(t => t.Topping?.GiaTopping ?? 0) ?? 0;
+                var tongTien = (ct.DonGia + giaTopping) * ct.SoLuong;
+
+                <tr>
+                    <td>@(stt++)</td>
+                    <td class="text-start">@ct.MonAn?.TenMon</td>
+                    <td>@ct.SoLuong</td>
+                    <td class="text-end">@ct.DonGia.ToString("N0") đ</td>
+                    <td class="text-start">
+                        @if (ct.ChiTietDonHangTopping != null && ct.ChiTietDonHangTopping.Any())
+                        {
+                            <ul class="mb-0 ps-3">
+                                @foreach (var topping in ct.ChiTietDonHangTopping)
+                                {
+                                    <li>
+                                        @topping.Topping?.TenTopping
+                                        (@(topping.Topping?.GiaTopping.ToString("N0") ?? "0") đ)
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <em>Không có</em>
+                        }
+                    </td>
+                    <td class="text-end">
+                        <strong>@tongTien.ToString("N0") đ</strong>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Styles {
+    <style>
+        .table th,
+        .table td {
+            vertical-align: middle !important;
+        }
+
+        .page-header h2 {
+            font-weight: bold;
+        }
+
+        .badge {
+            font-size: 0.85rem;
+            padding: 6px 10px;
+        }
+    </style>
+}

@@ -1,0 +1,13 @@
+@model List<TexasChicken.Models.LoaiMon>
+
+<div class="dropdown-mega-menu">
+    @foreach (var loai in Model)
+    {
+        <div class="mega-menu-item">
+            <a href="/ThucDon/Index?maLoai=@loai.MaLoai">
+                <img src="~/images/LoaiMon/@loai.HinhAnh" alt="@loai.TenLoai" />
+                <span>@loai.TenLoai.ToUpper()</span>
+            </a>
+        </div>
+    }
+</div>

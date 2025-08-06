@@ -1,0 +1,93 @@
+@model TexasChicken.Models.KhachHang
+@section Styles {
+    <link rel="stylesheet" href="~/css/dangky.css" asp-append-version="true" />
+}
+
+<div class="form-container">
+    <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
+
+    @if (ViewBag.ThongBao != null)
+    {
+        <div style="color:red; text-align: center;">@ViewBag.ThongBao</div>
+    }
+
+    <form id="formDangKy" asp-action="DangKy" asp-controller="TaiKhoan" method="post">
+        <div class="form-group">
+            <input asp-for="Ho" class="form-control" placeholder="Họ *" />
+            <span asp-validation-for="Ho" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="Ten" class="form-control" placeholder="Tên *" />
+            <span asp-validation-for="Ten" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="SoDienThoai" class="form-control" placeholder="Số điện thoại *" />
+            <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" placeholder="Email *" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="MatKhau" class="form-control" placeholder="Mật khẩu *" type="password" />
+            <span asp-validation-for="MatKhau" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="XacNhanMatKhau" class="form-control" placeholder="Xác nhận mật khẩu *" type="password" />
+            <span asp-validation-for="XacNhanMatKhau" class="text-danger"></span>
+        </div>
+
+        <div class="form-group date-group">
+            <input type="text" class="form-control" id="ngaySinh" name="NgaySinh" value="@(Model?.NgaySinh.HasValue == true ? Model.NgaySinh.Value.ToString("dd-MM-yyyy") : "")" placeholder="Ngày sinh *" autocomplete="off" />
+            <span class="calendar-icon">
+                <i class="fas fa-calendar-alt" onclick="flatpickrInstance.open()"></i>
+            </span>
+            <span asp-validation-for="NgaySinh" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label><input type="checkbox" name="DongY" value="true" required /> Tôi đồng ý với chính sách</label>
+        </div>
+
+        <button type="submit">ĐĂNG KÝ</button>
+    </form>
+
+    <div class="login-link">
+        <span>Bạn đã có tài khoản?</span>
+        <a href="javascript:void(0)" onclick="toggleLoginModal()">Đăng nhập</a>
+    </div>
+</div>
+<script>
+    const flatpickrInstance = flatpickr("#ngaySinh", {
+        dateFormat: "d-m-Y",
+        locale: "vi",
+        allowInput: true
+    });
+</script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            // Lấy validator của form
+            var validator = $("#formDangKy").validate();
+
+            // Ghi đè hàm kiểm tra khi người dùng rời khỏi ô input
+            validator.settings.onfocusout = function (element) {
+                // Chỉ validate nếu KHÔNG phải là ô Xác nhận mật khẩu
+                if (element.name !== "XacNhanMatKhau") {
+                    this.element(element);
+                }
+            };
+
+            // Đảm bảo khi submit, mọi thứ được kiểm tra đầy đủ
+            $("#formDangKy").on("submit", function () {
+                validator.form(); // validate tất cả
+            });
+        });
+    </script>
+}

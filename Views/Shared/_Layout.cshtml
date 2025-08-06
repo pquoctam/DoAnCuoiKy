@@ -1,0 +1,268 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - TexasChicken</title>
+  <link rel="stylesheet" href="/css/style.css" asp-append-version="true" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  @RenderSection("Styles", required: false)
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="/images/logo.png">
+    </div>
+
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li>
+          <a asp-controller="Home" asp-action="Index"
+            class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+            @Localizer["Home"]
+          </a>
+        </li>
+        <li class="has-dropdown">
+          <a asp-controller="ThucDon" asp-action="Index"
+            class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "ThucDon" ? "active" : "")">
+            @Localizer["Menu"]
+          </a>
+
+          @if (ViewBag.DanhMuc != null)
+          {
+            @await Html.PartialAsync("DanhMucMenu", ViewBag.DanhMuc as List<TexasChicken.Models.LoaiMon>)
+          }
+        </li>
+        <li>
+          <a asp-controller="TinTuc" asp-action="Index"
+            class="@(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")">
+            @Localizer["News"]
+          </a>
+        </li>
+        <li>
+          <a asp-controller="NhaHang" asp-action="Index"
+            class="@(ViewContext.RouteData.Values["action"]?.ToString() == "NhaHang" ? "active" : "")">
+            @Localizer["Restaurant"]
+          </a>
+        </li>
+        <li>
+          <a asp-controller="Home" asp-action="About"
+            class="@(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")">
+            @Localizer["About"]
+          </a>
+        </li>
+      </ul>
+
+      <div class="lang">
+        <a asp-controller="Language" asp-action="SetLanguage" asp-route-culture="vi"
+          asp-route-returnUrl="@Context.Request.Path">
+          <img src="https://flagcdn.com/w40/vn.png" alt="Tiếng Việt" />
+        </a>
+        <a asp-controller="Language" asp-action="SetLanguage" asp-route-culture="en"
+          asp-route-returnUrl="@Context.Request.Path">
+          <img src="https://flagcdn.com/w40/gb.png" alt="English" />
+        </a>
+      </div>
+
+      <div class="search-toggle" onclick="toggleSearch()">🔍</div>
+
+      @{
+        var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+        var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+        bool hienGioHang = !(currentController == "ThucDon" && currentAction == "ChiTiet");
+      }
+
+      @if (hienGioHang)
+      {
+        <a href="/GioHang/Index" class="cart-icon-wrapper" style="position: relative;">
+          <i class="fas fa-shopping-cart"></i>
+          @{
+            int count = Context.Session.GetInt32("CartCount") ?? 0;
+            if (count > 0)
+            {
+              <span class="cart-count">@count</span>
+            }
+          }
+        </a>
+      }
+
+      <div class="account-dropdown">
+        @if (Context.Session.GetString("HoTen") != null)
+        {
+          <div class="user-logged-in" onclick="toggleDropdown()">
+            <i class="fas fa-user-circle"></i>
+            <span>@Context.Session.GetString("HoTen")</span>
+            <div class="dropdown-menu" id="dropdownMenu">
+              <a asp-controller="TaiKhoan" asp-action="DangXuat">@Localizer["Logout"]</a>
+            </div>
+          </div>
+        }
+        else
+        {
+          <i class="fas fa-user-circle account-avatar" onclick="toggleLoginModal()"></i>
+        }
+      </div>
+    </div>
+  </header>
+
+  <div class="search-bar" id="searchBar">
+    <form method="get" action="/ThucDon/Index" class="search-form mb-4">
+      <input type="text" name="keyword" value="@ViewBag.TimKiem" placeholder="@Localizer["SearchPlaceholder"]" />
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+
+  <div class="container">
+    <main role="main" class="pb-3">
+      @RenderBody()
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h3>TEXAS CHICKEN VIETNAM</h3>
+        <p><i class="fas fa-map-marker-alt"></i> @Localizer["FooterAddress"]</p>
+        <p><i class="fas fa-phone"></i> (028) 393 11 039</p>
+        <p><i class="fas fa-envelope"></i> info.texaschicken@fb.mesa.vn</p>
+        <p><i class="fas fa-globe"></i> www.texaschickenvn.com</p>
+        <button><i class="fas fa-map-marked-alt"></i> @Localizer["ViewMap"]</button>
+      </div>
+
+      <div class="footer-column">
+        <h3>@Localizer["Info"]</h3>
+        <ul>
+          <li><a href="#">@Localizer["About"]</a></li>
+          <li><a href="#">@Localizer["Menu"]</a></li>
+          <li><a href="#">@Localizer["News"]</a></li>
+          <li><a href="#">@Localizer["Restaurant"]</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>@Localizer["Connect"]</h3>
+        <ul>
+          <li><a href="#">@Localizer["Contact"]</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>@Localizer["Subscribe"]</h3>
+        <div class="subscribe-form">
+          <input type="email" placeholder="@Localizer["YourEmail"]">
+          <button>@Localizer["Send"]</button>
+        </div>
+        <div class="social-icons">
+          <a href="https://facebook.com"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com"><i class="fab fa-youtube"></i></a>
+          <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-links">
+          <img
+            src="https://dangkywebvoibocongthuong.com/wp-content/uploads/2021/11/logo-da-thong-bao-bo-cong-thuong.png"
+            alt="Bộ Công Thương">
+          <a href="#">@Localizer["Policy"]</a>
+          <a href="#">@Localizer["Privacy"]</a>
+        </div>
+        <div class="copyright">
+          © 2022 Texas Chicken Vietnam – Số GCNĐKD: xxxx – Sở KH&ĐT Tỉnh ABC
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  @await RenderSectionAsync("Scripts", required: false)
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="~/js/ComboSwiper.js" asp-append-version="true"></script>
+  <script src="~/js/NewsSwiper.js" asp-append-version="true"></script>
+  <script src="~/js/login-modal.js" asp-append-version="true"></script>
+  <script src="~/js/DropDown.js" asp-append-version="true"></script>
+
+  <div class="login-modal" id="loginModal" style="display:none;">
+    <div class="login-box">
+      <button class="close-btn" onclick="toggleLoginModal()">×</button>
+      <img src="/images/logo.png" class="login-logo" />
+      <h2>@Localizer["Vui Lòng Đăng Nhập"]</h2>
+      <form asp-controller="TaiKhoan" asp-action="DangNhap" method="post">
+        @if (TempData["LoiDangNhap"] != null)
+        {
+          <div class="login-error">
+            @TempData["LoiDangNhap"]
+          </div>
+        }
+
+        <input type="text" name="Email" placeholder="@Localizer["Email hoặc SĐT"]" />
+        <input type="password" name="MatKhau" placeholder="@Localizer["Mật khẩu"]" />
+        <div class="forgot-link">
+            <a asp-controller="TaiKhoan" asp-action="QuenMatKhau">@Localizer["ForgotPassword"]</a>
+        </div>
+        <button type="submit">@Localizer["Login"]</button>
+      </form>
+
+      <div class="register-link">
+        <span>@Localizer["NoAccount"] <a asp-controller="TaiKhoan"
+            asp-action="DangKy">@Localizer["Đăng ký ngay"]</a></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const showModal = "@TempData["ShowLoginModal"]";
+      if (showModal === "true") {
+        toggleLoginModal();
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const dropdown = document.querySelector(".has-dropdown");
+      const menu = document.querySelector(".dropdown-mega-menu");
+
+      let timeout;
+
+      dropdown.addEventListener("mouseenter", () => {
+        clearTimeout(timeout);
+        if (menu) menu.style.display = "flex";
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        timeout = setTimeout(() => {
+          if (menu) menu.style.display = "none";
+        }, 200);
+      });
+
+      if (menu) {
+        menu.addEventListener("mouseenter", () => {
+          clearTimeout(timeout);
+          menu.style.display = "flex";
+        });
+
+        menu.addEventListener("mouseleave", () => {
+          timeout = setTimeout(() => {
+            menu.style.display = "none";
+          }, 200);
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

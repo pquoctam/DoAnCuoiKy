@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Quên mật khẩu";
+}
+
+<h2 class="reset-title">Quên mật khẩu</h2>
+
+@if (TempData["LoiQuenMatKhau"] != null)
+{
+    <div class="alert-error">@TempData["LoiQuenMatKhau"]</div>
+}
+
+<form method="post" class="reset-password-form">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Nhập email của bạn" />
+    <button type="submit" class="btn-reset">Gửi mã OTP</button>
+</form>
+
+@section Styles {
+    <style>
+        .reset-title {
+            text-align: center;
+            margin-top: 130px;
+            font-size: 32px;
+            color: #9a3324;
+        }
+
+        .alert-error {
+            text-align: center;
+            color: #9a3324;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .reset-password-form {
+            max-width: 400px;
+            margin: 30px auto 100px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .reset-password-form label {
+            display: block;
+            margin-bottom: 13px;
+            font-weight: 600;
+            color: #444;
+            font-size: 18px;
+        }
+
+        .reset-password-form input[type="email"] {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .reset-password-form input[type="email"]:focus {
+            border-color: #9a3324;
+            outline: none;
+        }
+
+        .btn-reset {
+            width: 100%;
+            background-color: #9a3324;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-reset:hover {
+            background-color: #f8b02d;
+        }
+    </style>
+}

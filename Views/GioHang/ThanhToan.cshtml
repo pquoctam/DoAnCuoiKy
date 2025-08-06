@@ -1,0 +1,496 @@
+@model Cart
+
+@{
+    var cartItems = Model?.CartItem ?? new List<CartItem>();
+    ViewData["Title"] = "Thanh Toán Đơn Hàng";
+
+    var tongTien = cartItems.Sum(item =>
+    ((item.MaMonNavigation?.GiaBan ?? 0) +
+    (item.CartItemTopping?.Sum(t => t.MaToppingNavigation?.GiaTopping ?? 0) ?? 0)) * item.SoLuong);
+}
+
+<h2 class="order-title">THANH TOÁN</h2>
+
+<div class="order-wrapper">
+    <form asp-action="ThanhToan" method="post" class="order-left">
+        @Html.AntiForgeryToken()
+
+        <h4 class="section-title">PHƯƠNG THỨC THANH TOÁN</h4>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="PhuongThucThanhToan" id="tienMat" value="TienMat" />
+            <label class="form-check-label" for="tienMat">Tiền Mặt</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="PhuongThucThanhToan" id="viMoMo" value="ViMoMo"
+                checked />
+            <label class="form-check-label" for="viMoMo">Ví MoMo</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="PhuongThucThanhToan" id="viDienTu" value="ViDienTu" />
+            <label class="form-check-label" for="viDienTu">Ví Điện Tử</label>
+        </div>
+
+        <div class="btn-actions">
+            <a href="@Url.Action("DatHang", "GioHang")" class="btn back-btn">TRỞ LẠI</a>
+            <a href="@Url.Action("DatHang", "GioHang")" class="btn confirm-btn">THANH TOÁN</a>
+        </div>
+
+    </form>
+
+    <div class="order-right">
+        <div class="order-header">
+            <h4>CHI TIẾT ĐƠN HÀNG</h4>
+            <i class="fas fa-pen edit-icon"></i>
+        </div>
+
+        @foreach (var item in cartItems)
+        {
+            var toppings = item.CartItemTopping ?? new List<CartItemTopping>();
+            var giaTopping = toppings.Sum(t => t.MaToppingNavigation?.GiaTopping ?? 0);
+            var giaMon = item.MaMonNavigation?.GiaBan ?? 0;
+            var thanhTien = (giaMon + giaTopping) * item.SoLuong;
+
+            <div class="order-item">
+                <img src="~/images/ThucDon/@item.MaMonNavigation?.HinhAnh" class="item-image" />
+                <div class="item-info">
+                    <p class="item-name">@item.MaMonNavigation?.TenMon</p>
+                    <p class="item-qty">x @item.SoLuong</p>
+                    <p class="item-price">+ @thanhTien.ToString("N0") đ</p>
+
+                    @if (toppings.Any())
+                    {
+                        <ul class="topping-list">
+                            @foreach (var tp in toppings)
+                            {
+                                <li>@tp.MaToppingNavigation?.TenTopping - @((tp.MaToppingNavigation?.GiaTopping ??
+                                                            0).ToString("N0")) đ</li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        }
+
+        <div class="order-subtotal">
+            <span>Chi phí tạm tính</span>
+            <span class="subtotal-amount">@tongTien.ToString("N0") đ</span>
+        </div>
+
+        <p class="vat-note">Đã bao gồm giá thuế VAT 8%</p>
+
+        <div class="promotion-wrapper">
+            <div class="voucher-header">
+                <h4 class="promotion1-title">Áp dụng khuyến mãi</h4>
+                <button type="button" class="btn-voucher">Duyệt voucher</button>
+            </div>
+
+            <div class="voucher-input">
+                <input type="text" placeholder="Nhập mã phiếu quà tặng" name="GiftCode" />
+                <button type="submit" class="btn-apply">Áp dụng</button>
+            </div>
+
+            <div class="coupon-section">
+                <h4 class="promotion2-title">Áp dụng coupon</h4>
+                <div class="coupon-input">
+                    <input type="text" name="MaCoupon" placeholder="Nhập mã khuyến mãi" />
+                    <button type="submit" class="btn-apply">Áp dụng</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="order-total">
+            <span class="total-label">Tổng Cộng</span>
+            <span class="total-amount">@tongTien.ToString("N0") đ</span>
+        </div>
+
+        <div class="delivery-info">
+            <div class="delivery-card">
+                <div class="card-header">
+                    <h4>Giao đến</h4>
+                    <i class="fas fa-pen edit-icon"></i>
+                </div>
+                <p><strong>Phúc Đặng</strong></p>
+                <p>Tel: 0762518633</p>
+                <p>Quận 1</p>
+                <p>Phường Phạm Ngũ Lão</p>
+                <p>200 Đường Lê Lai, Phường Phạm Ngũ Lão, Hồ Chí Minh</p>
+            </div>
+
+            <div class="delivery-card">
+                <div class="card-header">
+                    <h4>Phương thức giao hàng</h4>
+                    <i class="fas fa-pen edit-icon"></i>
+                </div>
+                <p><strong>Giao hàng tận nơi</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        .order-title {
+            text-align: center;
+            color: #9a3324;
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-top: 8rem;
+        }
+
+        .order-wrapper {
+            max-width: 1200px;
+            margin: 3rem auto 5rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .order-left,
+        .order-right {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        .form-check-input {
+            margin: 0;
+            accent-color: red;
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-check-label {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 1.75rem;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            /* khoảng cách giữa chấm và chữ */
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+
+        .form-check-input {
+            margin: 0;
+            accent-color: red;
+            width: 18px;
+            height: 18px;
+        }
+
+        .form-check-label {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Nút tiếp theo */
+        .btn-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 0;
+            text-align: center;
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn.back-btn {
+            background-color: #999999;
+        }
+
+        .btn.confirm-btn {
+            background-color: #e31937;
+        }
+
+        .btn.back-btn:hover {
+            background-color: #b3b3b3;
+            color: white;
+        }
+
+        .btn.confirm-btn:hover {
+            background-color: #c10014;
+            color: white;
+        }
+
+        .order-right {
+            background-color: #f9f6ef;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: 70rem;
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .order-header h4 {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .edit-icon {
+            color: #333;
+            cursor: pointer;
+        }
+
+        .order-item {
+            display: flex;
+            margin-bottom: 1.2rem;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 1rem;
+        }
+
+        .item-info {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .item-name {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .item-qty,
+        .item-price {
+            margin-bottom: 0.2rem;
+        }
+
+        .item-price {
+            font-weight: bold;
+            text-align: right;
+            white-space: nowrap;
+            transform: translateY(-2.75rem);
+        }
+
+        .topping-list {
+            list-style-type: none;
+            font-size: 0.9rem;
+            color: #555;
+            transform: translateY(-0.75rem);
+        }
+
+        .order-subtotal {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px dashed #ccc;
+            margin-top: 1.25rem;
+            padding-top: 0.8rem;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .vat-note {
+            color: #9a3324;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 1rem;
+        }
+
+        .promotion-wrapper {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .promotion1-title {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            color: #333;
+        }
+
+        .promotion2-title {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            color: #333;
+            margin-top: 2rem;
+        }
+
+        .voucher-section,
+        .coupon-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .voucher-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .btn-voucher {
+            background-color: #ffc107;
+            font-weight: 800;
+            padding: 0.75rem 1rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 0.4rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .voucher-input,
+        .coupon-input {
+            display: flex;
+        }
+
+        .voucher-input input,
+        .coupon-input input {
+            flex: 1;
+            padding: 1rem;
+            border-radius: 6px 0 0 6px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+
+        .btn-apply {
+            background-color: #e31937;
+            color: white;
+            font-weight: 900;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            padding: 0.5rem 1.25rem;
+            cursor: pointer;
+        }
+
+        .btn-apply:hover {
+            background-color: #c10014;
+        }
+
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #333;
+            margin-top: 1rem;
+            padding-top: 0.8rem;
+        }
+
+        .total-label {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-top: 0.5rem;
+        }
+
+        .total-amount {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #9a3324;
+            margin-top: 0.5rem;
+        }
+
+        .delivery-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .delivery-card {
+            background-color: #f9f6ef;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            width: 100%;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #333;
+            margin-top: 1rem;
+            padding-top: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .card-header h4 {
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .edit-icon {
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .order-wrapper {
+            max-width: 1200px;
+            margin: 3rem auto 5rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .order-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .order-right-column {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+    </style>
+
+}

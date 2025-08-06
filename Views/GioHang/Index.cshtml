@@ -1,0 +1,508 @@
+@model Cart
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+    var cartItems = Model?.CartItem ?? new List<CartItem>();
+}
+
+<style>
+    .cart-wrapper {
+        margin-top: 6rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 800px;
+    }
+
+    .cart-empty {
+        width: 1200px;
+        height: 500px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fefefe;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 8rem auto 3rem auto;
+        padding: 2rem;
+    }
+
+    .cart-empty-left h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #222;
+        line-height: 1.4;
+        margin-bottom: 2rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+
+    .btn-order {
+        background-color: #9a3324;
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-order:hover {
+        background-color: #f8b02d;
+    }
+
+    .cart-empty-right {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cart-empty-right img {
+        max-width: 100%;
+        height: auto;
+        width: 350px;
+    }
+
+    .cart-form {
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: #F5F5F5;
+        margin-bottom: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .cart-title {
+        color: #9a3324;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.75rem;
+        text-align: center;
+    }
+
+    .cart-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem 0.5rem;
+        background-color: #f8b02d;
+        border-radius: 1rem;
+        margin: 1rem 0.25rem 2rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .cart-content {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .product-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        background: white;
+        flex-shrink: 0;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+    }
+
+    .cart-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-info h5 {
+        font-size: 1.15rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0.5rem 0;
+        color: black;
+    }
+
+    .topping-list {
+        list-style-type: none;
+        font-size: 0.95rem;
+        color: black;
+        margin-bottom: 0.75rem;
+    }
+
+    .topping-list li {
+        margin-bottom: 0.25rem;
+    }
+
+    .qty-display {
+        background-color: white;
+        padding: 0.4rem 1.2rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        font-size: 0.95rem;
+        min-width: 2.5rem;
+        text-align: center;
+    }
+
+    .cart-info button {
+        background-color: #9a3324;
+        color: white;
+        border: none;
+        padding: 0.4rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+
+    .price {
+        color: #9a3324;
+        font-weight: bold;
+        font-size: 1.3rem;
+        margin-left: 2.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .action-buttons {
+        position: absolute;
+        top: 5.5rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .action-buttons a.btn-edit,
+    .action-buttons button.btn-delete {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #9a3324;
+        background-color: white;
+        color: #9a3324;
+        font-size: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+    }
+
+    .action-buttons a.btn-edit:hover,
+    .action-buttons button.btn-delete:hover {
+        background-color: #9a3324;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    .divider {
+        border-top: 2px dashed #ffffff;
+        margin: 2rem 0;
+    }
+
+    .toggle-row {
+        margin-top: 16rem;
+    }
+
+    .custom-radio {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        font-size: 1rem;
+    }
+
+    .custom-radio input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .custom-radio .checkmark {
+        height: 20px;
+        width: 20px;
+        background-color: white;
+        border: 2px solid #9a3324;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        margin-top: 0.2rem;
+    }
+
+    .custom-radio input[type="checkbox"]:checked+.checkmark::after {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        background-color: #e4002b;
+        border-radius: 50%;
+    }
+
+    .total-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 2px dashed #ccc;
+    }
+
+    .btn-dat-hang {
+        background-color: #9a3324;
+        color: white;
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .custom-swal-popup {
+        width: 360px !important;
+        max-height: 350px !important;
+        padding: 1.25rem !important;
+        font-size: 0.95rem;
+        line-height: 1.25;
+        border-radius: 0.75rem;
+        overflow-y: auto;
+        /* Cho phép cuộn nếu nội dung quá nhiều */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* Canh giữa nội dung theo chiều dọc */
+        align-items: center;
+        /* Canh giữa theo chiều ngang */
+        text-align: center;
+    }
+</style>
+
+@if (!cartItems.Any())
+{
+    <div class="cart-empty">
+        <div class="cart-empty-left">
+            <h2>GIỎ HÀNG CỦA<br>BẠN ĐANG<br>TRỐNG.<br>HÃY ĐẶT MÓN NGAY!</h2>
+            <a href="@Url.Action("Index", "ThucDon")" class="btn-order">Bắt đầu đặt hàng</a>
+        </div>
+        <div class="cart-empty-right">
+            <img src="~/images/Texas_Chicken_logo2.png" alt="Giỏ hàng trống" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="cart-wrapper">
+        <form asp-action="DatHang" method="post" class="cart-form">
+            @Html.AntiForgeryToken()
+            <h2 class="cart-title">GIỎ HÀNG CỦA BẠN</h2>
+
+            @foreach (var item in cartItems)
+            {
+                var giaMon = item.MaMonNavigation.GiaBan;
+                var toppings = item.CartItemTopping ?? new List<CartItemTopping>();
+                var tongTopping = toppings.Sum(t => t.MaToppingNavigation?.GiaTopping ?? 0);
+                var thanhTien = (giaMon + tongTopping) * item.SoLuong;
+
+                <div class="cart-item" data-id="@item.CartItemId" data-giaban="@giaMon" data-tongtopping="@tongTopping"
+                    data-mamon="@item.MaMon">
+                    <div class="cart-content">
+                        <img src="~/images/ThucDon/@item.MaMonNavigation.HinhAnh" class="product-image" />
+
+                        <div class="cart-info">
+                            <h5>@item.MaMonNavigation.TenMon</h5>
+
+                            @if (toppings.Any())
+                            {
+                                <ul class="topping-list">
+                                    @foreach (var tp in toppings)
+                                    {
+                                        <li>
+                                            1 x @tp.MaToppingNavigation?.TenTopping +
+                                            @((tp.MaToppingNavigation?.GiaTopping ?? 0).ToString("N0")) đ
+                                        </li>
+                                    }
+                                </ul>
+                            }
+
+                            <div class="d-flex align-items-center gap-2 mt-2">
+                                <button type="button" class="btn-decrease">-</button>
+                                <span class="qty-display">@item.SoLuong</span>
+                                <button type="button" class="btn-increase">+</button>
+                                <span class="price ms-3">@thanhTien.ToString("N0") đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <a href="@Url.Action("ChiTiet", "ThucDon", new { id = item.MaMon })" class="btn-edit" title="Chỉnh sửa">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <button type="button" class="btn-delete" data-id="@item.CartItemId" title="Xoá">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+
+                        <div class="toggle-row">
+                            <label class="custom-radio">
+                                <input type="checkbox" id="nhua-toggle" name="LayDungCu" value="true" />
+                                <span class="checkmark"></span>
+                                <div>
+                                    <strong>Lấy dụng cụ ăn uống nhựa</strong><br />
+                                    <small>Chúng tôi sẽ gửi dụng cụ ăn uống nhựa như: muỗng, nĩa...</small>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="total-section">
+                            <span>Tổng Cộng:</span>
+                            <span id="tong-cong" style="color: #9a3324; font-weight: bold;">
+                                @cartItems.Sum(item =>
+                                (item.MaMonNavigation.GiaBan +
+                                (item.CartItemTopping?.Sum(t => t.MaToppingNavigation?.GiaTopping ?? 0) ?? 0)) * item.SoLuong
+                                ).ToString("N0") đ
+            </span>
+        </div>
+
+            <button type="submit" class="btn-dat-hang">ĐẶT HÀNG</button>
+        </form>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            const updateTotal = () => {
+                let tongCong = 0;
+                document.querySelectorAll('.cart-item').forEach(cart => {
+                    const sl = parseInt(cart.querySelector('.qty-display').innerText);
+                    const gb = parseFloat(cart.dataset.giaban);
+                    const tp = parseFloat(cart.dataset.tongtopping);
+                    tongCong += (gb + tp) * sl;
+                });
+                document.getElementById('tong-cong').innerText = tongCong.toLocaleString('vi-VN') + " đ";
+            };
+
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const decreaseBtn = item.querySelector('.btn-decrease');
+                const increaseBtn = item.querySelector('.btn-increase');
+                const qtyDisplay = item.querySelector('.qty-display');
+                const priceDisplay = item.querySelector('.price');
+
+                const giaBan = parseFloat(item.dataset.giaban);
+                const tongTopping = parseFloat(item.dataset.tongtopping);
+
+                const updatePrice = (soLuong) => {
+                    const thanhTien = (giaBan + tongTopping) * soLuong;
+                    priceDisplay.innerText = thanhTien.toLocaleString('vi-VN') + " đ";
+                    updateTotal();
+                };
+
+                increaseBtn.addEventListener('click', () => {
+                    let soLuong = parseInt(qtyDisplay.innerText);
+                    soLuong++;
+                    qtyDisplay.innerText = soLuong;
+                    updatePrice(soLuong);
+
+                    const cartItemId = parseInt(item.dataset.id);
+                    fetch('/GioHang/CapNhatSoLuong', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'RequestVerificationToken': token
+                        },
+                        body: JSON.stringify({
+                            cartItemId: cartItemId,
+                            soLuongMoi: soLuong
+                        })
+                    });
+                });
+
+                decreaseBtn.addEventListener('click', () => {
+                    let soLuong = parseInt(qtyDisplay.innerText);
+                    if (soLuong > 1) {
+                        soLuong--;
+                        qtyDisplay.innerText = soLuong;
+                        updatePrice(soLuong);
+
+                        const cartItemId = parseInt(item.dataset.id);
+                        fetch('/GioHang/CapNhatSoLuong', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'RequestVerificationToken': token
+                            },
+                            body: JSON.stringify({
+                                cartItemId: cartItemId,
+                                soLuongMoi: soLuong
+                            })
+                        });
+                    }
+                });
+            });
+
+            // Bắt sự kiện xoá
+            document.querySelectorAll('.btn-delete').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const cartItemId = this.dataset.id;
+                    const item = this.closest('.cart-item');
+
+                    Swal.fire({
+                        text: 'Bạn có chắc bạn muốn loại bỏ sản phẩm này khỏi giỏ mua hàng?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#9a3324',
+                        cancelButtonColor: '#f8b02d',
+                        confirmButtonText: 'OK',
+                        cancelButtonText: 'HỦY',
+                        reverseButtons: true,
+                        customClass: {
+                            popup: 'custom-swal-popup'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            fetch('/GioHang/XoaCartItem', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'RequestVerificationToken': token
+                                },
+                                body: JSON.stringify({ cartItemId: parseInt(cartItemId) })
+                            }).then(res => {
+                                if (res.ok) {
+                                    item.remove();
+                                    updateTotal();
+
+                                    // Kiểm tra nếu không còn sản phẩm nào thì reload
+                                    const remainingItems = document.querySelectorAll('.cart-item').length;
+                                    if (remainingItems === 0) {
+                                        setTimeout(() => {
+                                            location.reload(); // Reload lại để hiện giao diện giỏ hàng trống
+                                        }, 500);
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Đã xoá!',
+                                            text: 'Sản phẩm đã được xoá khỏi giỏ hàng.',
+                                            timer: 1500,
+                                            showConfirmButton: false
+                                        });
+                                    }
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+}

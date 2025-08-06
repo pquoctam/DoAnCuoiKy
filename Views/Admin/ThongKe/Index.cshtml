@@ -1,0 +1,214 @@
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = $"Thống kê tháng {DateTime.Now.Month}/{DateTime.Now.Year}";
+    Layout = "_LayoutAdmin";
+
+    var doanhThu = ViewBag.DoanhThuTheoNgay as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
+    var topMon = ViewBag.TopMonAn as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
+}
+
+@section SubTitle {
+    <p>📅 Thống kê hoạt động trong tháng <strong>@DateTime.Now.Month</strong> năm <strong>@DateTime.Now.Year</strong></p>
+}
+
+<div class="dashboard">
+    <div class="card bg-blue">
+        <h4>👥 Khách hàng đăng ký</h4>
+        <p>@(ViewBag.TongKhachHang ?? 0)</p>
+    </div>
+    <div class="card bg-green">
+        <h4>🧾 Tổng đơn hàng</h4>
+        <p>@(ViewBag.TongDonHang ?? 0)</p>
+    </div>
+    <div class="card bg-yellow">
+        <h4>💵 Doanh thu</h4>
+        <p>@((ViewBag.TongDoanhThu ?? 0M).ToString("N0")) VNĐ</p>
+    </div>
+</div>
+
+<hr />
+
+<div class="chart-wrapper">
+    <div class="chart-box">
+        <h3>📊 Doanh thu theo ngày trong tháng</h3>
+        @if (!doanhThu.Any())
+        {
+            <p>Không có dữ liệu doanh thu trong tháng này.</p>
+        }
+        else
+        {
+            <canvas id="chartDoanhThu" class="chart-canvas"></canvas>
+        }
+    </div>
+
+    <div class="chart-box">
+        <h3>🍔 Top 5 món ăn bán chạy</h3>
+        @if (!topMon.Any())
+        {
+            <p>Không có dữ liệu món ăn bán chạy trong tháng này.</p>
+        }
+        else
+        {
+            <canvas id="chartTopMon" class="chart-canvas"></canvas>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onload = function () {
+            const doanhThuData = @Html.Raw(JsonConvert.SerializeObject(doanhThu));
+            const topMonData = @Html.Raw(JsonConvert.SerializeObject(topMon));
+
+            if (doanhThuData.length > 0) {
+                new Chart(document.getElementById('chartDoanhThu'), {
+                    type: 'bar',
+                    data: {
+                        labels: doanhThuData.map(x => `Ngày ${x.Ngay}`),
+                        datasets: [{
+                            label: 'Doanh thu (VNĐ)',
+                            data: doanhThuData.map(x => x.TongTien),
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2,
+                            borderRadius: 6,
+                            hoverBackgroundColor: 'rgba(75, 192, 192, 0.9)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                backgroundColor: '#333',
+                                titleFont: { size: 16 },
+                                bodyFont: { size: 14 },
+                                padding: 10
+                            }
+                        },
+                        scales: {
+                            x: {
+                                ticks: { font: { size: 14 } },
+                                grid: { display: false }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    font: { size: 14 },
+                                    callback: value => value.toLocaleString('vi-VN') + ' ₫'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            if (topMonData.length > 0) {
+                new Chart(document.getElementById('chartTopMon'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: topMonData.map(x => x.TenMon),
+                        datasets: [{
+                            label: 'Số lượng',
+                            data: topMonData.map(x => x.SoLuong),
+                            backgroundColor: [
+                                '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'
+                            ],
+                            borderColor: '#fff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        cutout: '60%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: { size: 14 }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: '#333',
+                                titleFont: { size: 16 },
+                                bodyFont: { size: 14 },
+                                padding: 10
+                            }
+                        }
+                    }
+                });
+            }
+        };
+    </script>
+}
+
+<style>
+    .dashboard {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        flex: 1 1 250px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        text-align: center;
+        color: #fff;
+        transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card h4 {
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+    }
+
+    .card p {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .bg-blue {
+        background-color: #007bff;
+    }
+
+    .bg-green {
+        background-color: #28a745;
+    }
+
+    .bg-yellow {
+        background-color: #ffc107;
+    }
+
+    .chart-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4rem;
+        justify-content: space-between;
+        margin-top: 2rem;
+    }
+
+    .chart-box {
+        flex: 1 1 45%;
+        width: 100px;
+    }
+
+    .chart-box h3 {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .chart-canvas {
+        width: 90% !important;
+        height: 450px !important;
+        margin-bottom: 2rem;
+    }
+</style>

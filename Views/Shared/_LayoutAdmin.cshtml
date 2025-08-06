@@ -1,0 +1,306 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - @ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+    @RenderSection("styles", required: false)
+    @RenderSection("Scripts", required: false)
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <h2 class="sidebar-title">Admin!</h2>
+                <div class="user-info">
+                    <img src="~/images/admin-avatar.png" alt="Avatar">
+                    <div class="user-name">
+                        <span>Welcome</span><br />
+                        <strong>@Context.Session.GetString("HoTen")</strong>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <ul class="sidebar-menu"></ul>
+                <li><a asp-controller="Admin" asp-action="Index"><i class="fa fa-home"></i> Home</a></li>
+                <li><a asp-controller="LoaiMon" asp-action="Index"><i class="fa fa-list"></i> Loại món</a></li>
+                <li><a asp-controller="ThucDon" asp-action="QuanLy"><i class="fa fa-utensils"></i> Thực đơn</a></li>
+                <li><a asp-controller="Topping" asp-action="Index"><i class="fa fa-plus-square"></i> Topping</a></li>
+                <li><a asp-controller="DonHang" asp-action="Index"><i class="fa fa-file-invoice-dollar"></i> Đơn
+                        hàng</a></li>
+                <li><a asp-controller="KhuyenMai" asp-action="Index"><i class="fa fa-tags"></i> Khuyến mãi</a></li>
+                <li><a asp-controller="TinTuc" asp-action="QuanLy"><i class="fa fa-newspaper"></i> Tin tức</a></li>
+                <li><a asp-controller="KhachHang" asp-action="Index"><i class="fa fa-users"></i> Khách hàng</a></li>
+                <li><a asp-controller="TaiKhoan" asp-action="DangXuat"><i class="fa fa-sign-out-alt"></i> Đăng xuất</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main -->
+        <main class="admin-main">
+            <div class="admin-toolbar d-flex align-items-center px-3 py-2">
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <header class="admin-header px-3">
+                <h1>@ViewData["Title"]</h1>
+                @RenderSection("SubTitle", false)
+            </header>
+
+            <section class="admin-body">
+                @RenderBody()
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .admin-container {
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .sidebar {
+        width: 240px;
+        background-color: #9a3324;
+        color: white;
+        padding: 1.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar-title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .user-info img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .sidebar-menu a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        padding: 13px 15px;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+        font-size: 15px;
+        gap: 10px;
+    }
+
+    .sidebar-menu a i {
+        font-size: 16px;
+        min-width: 20px;
+        text-align: center;
+        line-height: 1;
+        
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+        background-color: #f8b02d;
+    }
+
+    .admin-main {
+        flex: 1;
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .admin-header h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 1.25rem;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+        margin-top: 4rem;
+    }
+
+    .admin-body {
+        background-color: #ffffff;
+        padding: 1.5rem 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e3e3e3;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1.5rem;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #ddd;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    table thead {
+        background-color: #f2f2f2;
+    }
+
+    .admin-toolbar {
+        background-color: #9a3324;
+        padding: 0.75rem 1rem;
+        display: flex;
+        align-items: center;
+        height: 50px;
+        width: 120%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        margin: -2rem;
+    }
+
+    .sidebar-toggle {
+        background: none;
+        border: none;
+        color: #333;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
+
+    .admin-container.sidebar-collapsed .sidebar {
+        width: 0;
+        overflow: hidden;
+        transition: width 0.3s ease;
+    }
+
+    .admin-container.sidebar-collapsed .sidebar * {
+        display: none;
+    }
+
+    .admin-container.sidebar-collapsed .admin-main {
+        margin-left: 0;
+        transition: margin-left 0.3s ease;
+    }
+
+    .btn {
+        border: none;
+        padding: 0.5rem 1.4rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #fff;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .btn-addnew {
+        background-color: #0b6ba8;
+    }
+
+    .btn-addnew:hover {
+        background-color: #095885;
+    }
+
+    .btn-back {
+        background-color: #e74c3c;
+    }
+
+    .btn-back:hover {
+        background-color: #c0392b;
+    }
+
+    .gap-2 {
+        gap: 0.5rem;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-end {
+        justify-content: flex-end;
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .mb-0 {
+        margin-bottom: 0;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem;
+    }
+</style>
+
+<script>
+    function toggleSidebar() {
+        document.querySelector('.admin-container').classList.toggle('sidebar-collapsed');
+    }
+
+    // Lưu scroll vị trí của phần chính, không phải window
+    window.addEventListener("beforeunload", function () {
+        const scrollY = document.getElementById("mainContent").scrollTop;
+        sessionStorage.setItem("mainScrollPos", scrollY);
+    });
+
+    // Khôi phục scroll khi tải lại
+    window.addEventListener("load", function () {
+        const scrollPos = sessionStorage.getItem("mainScrollPos");
+        if (scrollPos !== null) {
+            document.getElementById("mainContent").scrollTop = parseInt(scrollPos);
+        }
+    });
+</script>
